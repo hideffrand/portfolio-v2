@@ -2,8 +2,8 @@ import Image from "next/image"
 
 export default function Footer() {
   return (
-    <>
-      <h1 id="contact" className="relative text-center md:text-4xl text-2xl mt-40 mb-24 text-white">
+    <div id="contact" className="relative mt-80">
+      <h1 className="text-center text-2xl md:text-4xl mb-24 text-white font-normal">
         Let&apos;s Connect!
       </h1>
       <footer className="relative pb-32 flex flex-col justify-between items-center">
@@ -18,9 +18,12 @@ export default function Footer() {
             <Image className="w-full" src="/github.svg" height={800} width={800} alt="Github" priority />
           </a>
         </div>
-        <div className="absolute w-80 h-60 bg-linear-to-t from-[rgb(255,255,255,0.2)] to-transparent bottom-0 blur-2xl rounded-full animate-pulse duration-2000"></div>
+        <div
+          className="absolute w-80 h-60 bg-linear-to-t from-white/20 to-transparent bottom-0 blur-2xl rounded-full animate-pulse"
+          style={{ animationDuration: '2s' }}
+        />
         <Image className="absolute bottom-0 z-0 opacity-60" src="/beam.svg" width={700} height={700} alt="Beams" />
       </footer>
-    </>
+    </div>
   )
 }
