@@ -16,6 +16,12 @@ export interface ProjectProps {
     title: string;
     desc: string;
   }[];
+  lighthouse: {
+    performance: number;
+    accessibility: number;
+    bestPractices: number;
+    seo: number;
+  };
 }
 
 export const projects: ProjectProps[] = [
@@ -27,7 +33,7 @@ export const projects: ProjectProps[] = [
     year: 2026,
     url: "https://zyrex.com/service",
     desc: "Kozy is an end-to-end\nsolution for modern living.\nBuilt with performance in mind.",
-    stack: ["react", "tw", "py", "sql"],
+    stack: ["next", "tw", "py", "sql"],
     overviewParagraphs: [
       "Modern software deployments often suffer from structural friction where data delivery delays directly hinder the user experience. For this system framework, the primary engineering obstacle centered around reducing operational latencies, maintaining high system throughput, and designing clean interfaces that make data exploration intuitive.",
       "During the initial analysis phase, diagnostics revealed significant bottlenecks within runtime re-renders and nested component trees. Without deep optimization, managing intensive user workflows created unnecessary layout shifts and visual stutter—negatively impacting conversion metrics and app reliability."
@@ -45,7 +51,13 @@ export const projects: ProjectProps[] = [
       { label: "B / Scalability", title: "Modular Layouts", desc: "Component hierarchies use predictable atomic design structures, making it incredibly straightforward to drop in future software tools without triggering cascade break errors." },
       { label: "C / Optimization", title: "API Interfacing", desc: "Outfitted transactional state endpoints with lightweight debouncing, cutting down redundant server traffic while keeping data feeds crisp and snappy." },
       { label: "D / Access", title: "Fluid Adaptive Scaling", desc: "Flexible layout configurations pass automated accessibility and responsive styling validation checks across all modern browser configurations." }
-    ]
+    ],
+    lighthouse: {
+      performance: 92,
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 90
+    }
   },
   {
     id: "kozy",
@@ -73,7 +85,13 @@ export const projects: ProjectProps[] = [
       { label: "B / Scalability", title: "Modular Layouts", desc: "Component hierarchies use predictable atomic design structures, making it incredibly straightforward to drop in future software tools without triggering cascade break errors." },
       { label: "C / Optimization", title: "API Interfacing", desc: "Outfitted transactional state endpoints with lightweight debouncing, cutting down redundant server traffic while keeping data feeds crisp and snappy." },
       { label: "D / Access", title: "Fluid Adaptive Scaling", desc: "Flexible layout configurations pass automated accessibility and responsive styling validation checks across all modern browser configurations." }
-    ]
+    ],
+    lighthouse: {
+      performance: 92,
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 90
+    }
   },
   {
     id: "signify",
@@ -101,36 +119,48 @@ export const projects: ProjectProps[] = [
       { label: "B / System", title: "Component Systems", desc: "Atomic asset sets constructed with responsive auto-layout features mapping precisely to standard frontend CSS rules." },
       { label: "C / Assets", title: "Asset Specification Tokens", desc: "Unified style rules exporting direct hex coordinate keys and micro-spacing matrices across development steps." },
       { label: "D / Review", title: "Usability Validations", desc: "User feedback trials confirming significant drops in task completion friction points during primary workflows." }
-    ]
+    ],
+    lighthouse: {
+      performance: 92,
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 90
+    }
   },
-  {
-    id: "tkagape",
-    title: "TK Agape",
-    img: "/tkagape.webp",
-    type: "Full Stack Web Development",
-    year: 2024,
-    url: "https://tkagape.vercel.app",
-    desc: "A highly dynamic administrative platform providing management tools and unified information hubs.",
-    stack: ["next", "ts", "tw", "firebase"],
-    overviewParagraphs: [
-      "Administrative system architectures frequently struggle with real-time data sync failures when scaling user interactions.",
-      "This integration targeted real-time pipeline connections to allow institutional database sets to load without UI interruptions."
-    ],
-    architectureParagraphs: [
-      "The deployment coordinates server-rendered client layouts alongside dynamic database query synchronization layers.",
-      "State caching behaviors are handled inside structural query frameworks, cutting down processing demands across components."
-    ],
-    designParagraphs: [
-      "Dashboard modules maintain clean card structures, dense data layouts, and high-contrast control states.",
-      "Forms utilize immediate inline verification feedback to block corrupted dataset updates before transit."
-    ],
-    deliverables: [
-      { label: "A / Database", title: "Dynamic Synchronization", desc: "Real-time state processing infrastructure minimizing connection loss and sync anomalies across user browser sessions." },
-      { label: "B / Auth", title: "Access Security Layers", desc: "Granular administrative gate controls ensuring data validation integrity protocols remain isolated from public endpoints." },
-      { label: "C / UI", title: "Admin Workspace Consoles", desc: "Dense layout tables optimizing complex records processing, bulk update operations, and dynamic filtration paths." },
-      { label: "D / Deployment", title: "Edge Performance Targets", desc: "Asset optimization routines driving core web vital benchmarks past established production parameters." }
-    ]
-  },
+  // {
+  //   id: "tkagape",
+  //   title: "TK Agape",
+  //   img: "/tkagape.webp",
+  //   type: "Full Stack Web Development",
+  //   year: 2024,
+  //   url: "https://tkagape.vercel.app",
+  //   desc: "A highly dynamic administrative platform providing management tools and unified information hubs.",
+  //   stack: ["next", "ts", "tw", "firebase"],
+  //   overviewParagraphs: [
+  //     "Administrative system architectures frequently struggle with real-time data sync failures when scaling user interactions.",
+  //     "This integration targeted real-time pipeline connections to allow institutional database sets to load without UI interruptions."
+  //   ],
+  //   architectureParagraphs: [
+  //     "The deployment coordinates server-rendered client layouts alongside dynamic database query synchronization layers.",
+  //     "State caching behaviors are handled inside structural query frameworks, cutting down processing demands across components."
+  //   ],
+  //   designParagraphs: [
+  //     "Dashboard modules maintain clean card structures, dense data layouts, and high-contrast control states.",
+  //     "Forms utilize immediate inline verification feedback to block corrupted dataset updates before transit."
+  //   ],
+  //   deliverables: [
+  //     { label: "A / Database", title: "Dynamic Synchronization", desc: "Real-time state processing infrastructure minimizing connection loss and sync anomalies across user browser sessions." },
+  //     { label: "B / Auth", title: "Access Security Layers", desc: "Granular administrative gate controls ensuring data validation integrity protocols remain isolated from public endpoints." },
+  //     { label: "C / UI", title: "Admin Workspace Consoles", desc: "Dense layout tables optimizing complex records processing, bulk update operations, and dynamic filtration paths." },
+  //     { label: "D / Deployment", title: "Edge Performance Targets", desc: "Asset optimization routines driving core web vital benchmarks past established production parameters." }
+  //   ]
+  // },
+  // lighthouse: {
+  //     performance: 92,
+  //     accessibility: 95,
+  //     bestPractices: 100,
+  //     seo: 90
+  //   }
   {
     id: "gowize",
     title: "Gowize",
@@ -157,7 +187,13 @@ export const projects: ProjectProps[] = [
       { label: "B / Tracking", title: "Telemetry Caching Blocks", desc: "Efficient queue storage handlers packing tracking state updates before dispatching data packets to remote servers." },
       { label: "C / UI/UX", title: "Ergonomic Layout Grids", desc: "Touch-focused interaction systems optimized for fast access to primary functions during active use cases." },
       { label: "D / Frame", title: "Adaptive Layout Scaling", desc: "Comprehensive interface configurations adjusting to standard screen safe-areas across device operating platforms." }
-    ]
+    ],
+    lighthouse: {
+      performance: 92,
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 90
+    }
   },
   {
     id: "ovo",
@@ -185,7 +221,13 @@ export const projects: ProjectProps[] = [
       { label: "B / Typography", title: "Fluid Font Scaling Blocks", desc: "Dynamic screen text calculations ensuring typographical compositions preserve strict proportional scales across device formats." },
       { label: "C / Layout", title: "Minimal Asset Overhead", desc: "Refined styling logic stripping out redundant presentation files to drastically reduce required data transfers." },
       { label: "D / Interaction", title: "Accelerated Animations", desc: "CSS-driven transformation configurations offloading rendering strain directly to system processors for frame stability." }
-    ]
+    ],
+    lighthouse: {
+      performance: 92,
+      accessibility: 95,
+      bestPractices: 100,
+      seo: 90
+    }
   }
 ];
 

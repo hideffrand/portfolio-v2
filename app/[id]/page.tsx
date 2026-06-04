@@ -1,6 +1,7 @@
 import { projects, techTag } from "@/utils/data"
 import { notFound } from "next/navigation"
 import Image from "next/image"
+import LighthouseGauge from "@/components/lighthouse-gauge"
 
 interface PageProps {
     params: Promise<{ id: string }>
@@ -22,33 +23,30 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
     return (
         <main className="relative z-10 pt-32 pb-32 text-neutral-200 font-sans selection:bg-white selection:text-black">
-            {/* Meta Context Header Nav */}
             <div className="mb-8 flex items-center justify-between border-b border-neutral-800 pb-6">
                 <a
                     href="/#works"
-                    className="text-xs uppercase font-extrabold tracking-wider text-neutral-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-xs uppercase font-extrabold text-neutral-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                     </svg>
                     Back to Case Studies
                 </a>
-                <span className="text-xs font-mono font-bold tracking-widest text-neutral-600">
+                <span className="text-xs font-bold text-neutral-600">
                     CASE_STUDY // {project.id.toUpperCase()}
                 </span>
             </div>
 
-            {/* Title & Category Block */}
             <header className="mb-12">
-                <span className="text-xs font-extrabold uppercase tracking-widest text-neutral-400 bg-neutral-900/60 border border-neutral-800/80 px-3 py-1 rounded-md">
+                <span className="text-xs font-extrabold uppercase text-neutral-400 bg-neutral-900/60 border border-neutral-800/80 px-3 py-1 rounded-md">
                     {project.type}
                 </span>
-                <h1 className="text-5xl md:text-7xl font-extrabold mt-4 text-white tracking-tighter uppercase">
+                <h1 className="text-5xl md:text-7xl font-extrabold mt-4 text-whiteer uppercase">
                     {project.title}
                 </h1>
             </header>
 
-            {/* Immersive Main Showcase & Spec Sidebar */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
                 <section className="lg:col-span-8 relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950/40 shadow-2xl">
                     <Image
@@ -62,17 +60,17 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
                 <section className="lg:col-span-4 bg-neutral-900/20 border border-neutral-800/60 backdrop-blur-md rounded-xl p-6 flex flex-col justify-between gap-8">
                     <div className="space-y-6">
-                        <h3 className="text-xs font-extrabold uppercase tracking-widest text-white border-b border-neutral-800 pb-2">
+                        <h3 className="text-xs font-extrabold uppercase text-white border-b border-neutral-800 pb-2">
                             Metadata Overview
                         </h3>
-                        
+
                         <div className="grid grid-cols-2 gap-4">
                             <div>
-                                <p className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-500">Timeline</p>
+                                <p className="text-[10px] font-extrabold uppercase text-neutral-500">Timeline</p>
                                 <p className="text-sm font-bold text-white mt-0.5">{project.year}</p>
                             </div>
                             <div>
-                                <p className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-500">System Status</p>
+                                <p className="text-[10px] font-extrabold uppercase text-neutral-500">System Status</p>
                                 <p className="text-sm font-bold text-emerald-400 mt-0.5 flex items-center gap-1.5">
                                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                                     Production Active
@@ -81,7 +79,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         </div>
 
                         <div>
-                            <p className="text-[10px] font-extrabold uppercase tracking-wider text-neutral-500 mb-2">Core Technology Stack</p>
+                            <p className="text-[10px] font-extrabold uppercase text-neutral-500 mb-2">Core Technology Stack</p>
                             <div className="flex flex-wrap gap-1.5">
                                 {project.stack.map((tech) => (
                                     <div
@@ -100,7 +98,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                             href={project.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="w-full bg-white text-black font-extrabold text-xs uppercase tracking-wider py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-neutral-200 active:scale-[0.99] transition-all duration-200"
+                            className="w-full bg-white text-black font-extrabold text-xs uppercase py-3.5 rounded-lg flex items-center justify-center gap-2 hover:bg-neutral-200 active:scale-[0.99] transition-all duration-200"
                         >
                             Launch Live Production
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3.5 h-3.5">
@@ -111,16 +109,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </section>
             </div>
 
-            {/* Deep-Dive Case Study Documentation Section */}
             <div className="space-y-24 border-t border-neutral-900 pt-16">
-                
-                {/* 01 / The Problem Space */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
                     <div className="md:col-span-4 lg:col-span-3 md:sticky md:top-28">
-                        <h3 className="text-xs font-extrabold uppercase tracking-widest text-neutral-500 font-mono">
-                            01 // Discovery
-                        </h3>
-                        <h2 className="text-xl font-extrabold text-white uppercase mt-2 tracking-tight">
+                        <h2 className="text-xl font-medium text-white mt-2">
                             The Problem Space
                         </h2>
                     </div>
@@ -134,13 +126,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     </div>
                 </div>
 
-                {/* 02 / System Architecture (With Contextual Split Image) */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center border-t border-neutral-900/60 pt-16">
                     <div className="md:col-span-4 lg:col-span-3 md:sticky md:top-28 self-start">
-                        <h3 className="text-xs font-extrabold uppercase tracking-widest text-neutral-500 font-mono">
-                            02 // Engineering
-                        </h3>
-                        <h2 className="text-xl font-extrabold text-white uppercase mt-2 tracking-tight">
+                        <h2 className="text-xl font-medium text-white mt-2">
                             Architecture & Engineering
                         </h2>
                     </div>
@@ -150,8 +138,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 <p key={index}>{paragraph}</p>
                             ))}
                         </div>
-                        
-                        {/* Secondary Context Image Spot */}
+
                         <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-800/80 bg-neutral-950/50 shadow-xl group">
                             <Image
                                 src={project.img}
@@ -159,20 +146,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 fill
                                 className="object-cover filter brightness-[0.85] transition-all duration-500 group-hover:scale-102 group-hover:brightness-100"
                             />
-                            <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md border border-neutral-800 px-3 py-1.5 rounded text-[11px] font-mono text-neutral-400 font-bold">
+                            <div className="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md border border-neutral-800 px-3 py-1.5 rounded text-[11px] text-neutral-400 font-bold">
                                 FIG 02 // Engineering Infrastructure & UI State Syncing
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* 03 / Interface Engineering & Interaction Dynamics */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t border-neutral-900/60 pt-16">
                     <div className="md:col-span-4 lg:col-span-3 md:sticky md:top-28">
-                        <h3 className="text-xs font-extrabold uppercase tracking-widest text-neutral-500 font-mono">
-                            03 // Interface
-                        </h3>
-                        <h2 className="text-xl font-extrabold text-white uppercase mt-2 tracking-tight">
+                        <h2 className="text-xl font-medium text-white mt-2">
                             UI/UX & Systems Layout
                         </h2>
                     </div>
@@ -182,22 +165,69 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         ))}
                     </div>
                 </div>
-
-                {/* 04 / Core Project Deliverables (High Density Grid Layout Block) */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t border-neutral-900/60 pt-16">
                     <div className="md:col-span-4 lg:col-span-3 md:sticky md:top-28">
-                        <h3 className="text-xs font-extrabold uppercase tracking-widest text-neutral-500 font-mono">
-                            04 // Outcomes
-                        </h3>
-                        <h2 className="text-xl font-extrabold text-white uppercase mt-2 tracking-tight">
+                        <h2 className="text-xl font-medium text-white mt-2">
+                            Lighthouse Audit
+                        </h2>
+                    </div>
+
+                    <div className="md:col-span-8 lg:col-span-9 space-y-8">
+                        {project.lighthouse ? (
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <LighthouseGauge score={project.lighthouse.performance} label="Performance" />
+                                <LighthouseGauge score={project.lighthouse.accessibility} label="Accessibility" />
+                                <LighthouseGauge score={project.lighthouse.bestPractices} label="Best Practices" />
+                                <LighthouseGauge score={project.lighthouse.seo} label="SEO" />
+                            </div>
+                        ) : (
+                            <div className="text-xs text-neutral-600">
+                                No telemetry data recorded for this deployment.
+                            </div>
+                        )}
+
+                        {/* Deskripsi Teknis Aspek */}
+                        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-neutral-900/60 pt-6">
+                            <div className="border border-neutral-900 bg-neutral-950/20 p-4 rounded-lg">
+                                <span className="text-[10px] font-bold text-blue-400 uppercase block mb-1">01 / Performance</span>
+                                <p className="text-xs text-neutral-400 leading-relaxed font-medium">
+                                    Mengukur kecepatan muat elemen visual, efisiensi script blocking, dan stabilitas tata letak runtime saat interaksi pertama dijalankan.
+                                </p>
+                            </div>
+                            <div className="border border-neutral-900 bg-neutral-950/20 p-4 rounded-lg">
+                                <span className="text-[10px] font-bold text-blue-400 uppercase block mb-1">02 / Accessibility</span>
+                                <p className="text-xs text-neutral-400 leading-relaxed font-medium">
+                                    Memastikan struktur elemen HTML semantik, kontras warna teks, serta dukungan navigasi pembaca layar (screen-readers) terpenuhi secara penuh.
+                                </p>
+                            </div>
+                            <div className="border border-neutral-900 bg-neutral-950/20 p-4 rounded-lg">
+                                <span className="text-[10px] font-bold text-blue-400 uppercase block mb-1">03 / Best Practices</span>
+                                <p className="text-xs text-neutral-400 leading-relaxed font-medium">
+                                    Audit keamanan web melalui koneksi HTTPS tingkat tinggi, kebersihan log dependensi pustaka, dan pemanfaatan rasio aspek media modern.
+                                </p>
+                            </div>
+                            <div className="border border-neutral-900 bg-neutral-950/20 p-4 rounded-lg">
+                                <span className="text-[10px] font-bold text-blue-400 uppercase block mb-1">04 / SEO Optimization</span>
+                                <p className="text-xs text-neutral-400 leading-relaxed font-medium">
+                                    Kelayakan meta-tag dokumen, kesiapan data terstruktur crawl engine, serta ketersediaan index tautan ramah perayapan robot pencari.
+                                </p>
+                            </div>
+                        </div> */}
+
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t border-neutral-900/60 pt-16">
+                    <div className="md:col-span-4 lg:col-span-3 md:sticky md:top-28">
+                        <h2 className="text-xl font-medium text-white mt-2">
                             Key Deliverables
                         </h2>
                     </div>
-                    
+
                     <div className="md:col-span-8 lg:col-span-9 grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {project.deliverables?.map((item, index) => (
-                            <div key={index} className="bg-neutral-900/10 border border-neutral-800/60 p-6 rounded-xl space-y-2">
-                                <div className="text-xs font-extrabold font-mono text-blue-400 uppercase tracking-widest">
+                            <div key={index} className="bg-neutral-700/40 border border-neutral-800/60 p-6 rounded-xl space-y-2">
+                                <div className="text-xs font-extrabold text-blue-400 uppercase">
                                     {item.label}
                                 </div>
                                 <h4 className="text-white font-bold text-base uppercase">
