@@ -32,25 +32,25 @@ export const projects: ProjectProps[] = [
     type: "Full Stack Web Development",
     year: 2026,
     url: "https://zyrex.com/service",
-    desc: "Kozy is an end-to-end\nsolution for modern living.\nBuilt with performance in mind.",
+    desc: "Zyrex CS is an end-to-end customer service and ticketing system with seamless client booking and advanced admin controls.",
     stack: ["next", "tw", "py", "sql"],
     overviewParagraphs: [
-      "Modern software deployments often suffer from structural friction where data delivery delays directly hinder the user experience. For this system framework, the primary engineering obstacle centered around reducing operational latencies, maintaining high system throughput, and designing clean interfaces that make data exploration intuitive.",
-      "During the initial analysis phase, diagnostics revealed significant bottlenecks within runtime re-renders and nested component trees. Without deep optimization, managing intensive user workflows created unnecessary layout shifts and visual stutter—negatively impacting conversion metrics and app reliability."
+      "Modern technical support systems often suffer from high operational friction, where slow booking pipelines and manual workflows delay customer hardware repairs. For the Zyrex CS platform, the primary engineering obstacle centered around streamlining the service request pipeline—enabling users to log issues effortlessly while simultaneously giving admin teams immediate visibility into incoming ticket backlogs.",
+      "During the initial analysis phase, diagnostics revealed significant bottlenecks within the walk-in ticket logging process and manual service center allocation. Without a unified system, syncing on-site device drop-offs with digital records created unnecessary delays, inaccurate repair tracking, and administrative overhead that negatively impacted service turnaround times."
     ],
     architectureParagraphs: [
-      "To address these limitations, the architectural foundation was re-engineered from the ground up. By utilizing strict asynchronous state machines and decoupling core presentation layovers from backend transactional mechanisms, component dependencies dropped significantly.",
-      "This modular setup ensures that user updates scale smoothly while maintaining responsive cross-device views. Data validation runs inside automated pipelines, keeping state mutations clean and eliminating UI race conditions."
+      "To eliminate these inefficiencies, the system architecture was engineered to handle high-concurrency ticket mutations and automated background tasks. By utilizing asynchronous queues, customer booking forms instantly trigger automated WhatsApp confirmation APIs without blocking the main thread, providing immediate peace of mind to the user.",
+      "On the administrative side, the platform decouples heavy data processing—such as generating Repair Order (RO) documents and processing live ticket barcode scans—from the client-facing UI. This modular backend setup scales smoothly across multiple physical service centers, ensuring state mutations remain clean and preventing race conditions when multiple admins update the same ticket."
     ],
     designParagraphs: [
-      "Great interface engineering balances aesthetic restraint with rigorous logic. Layout designs are structured around precise reading paths, clear functional focus zones, and structured visual hierarchies. This ensures users can locate key controls effortlessly without cognitive overload.",
-      "Interactive patterns are paired with smooth CSS transform physics to ensure instant visual confirmation on every click. Elements rely on proportional paddings, crisp high-contrast headings, and fluid breakpoint adjustments to stay cohesive across mobile views and wide desktop arrays."
+      "The interface design balances rapid data entry for walk-in customers with high-density information layouts for service center admins. The customer portal relies on an intuitive, multi-step booking form structured around clear functional zones, while the admin dashboard utilizes a dense, scannable layout optimized for quick ticket sorting, filtering, and status updates.",
+      "Interactive workflows, such as scanning physical service tickets using a device camera, are paired with responsive feedback states to ensure instant operational confirmation. Elements rely on compact, clean tables for ticket management, crisp high-contrast status badges, and fluid breakpoint adjustments to allow field technicians to update repair progress from mobile devices or wide desktop arrays."
     ],
     deliverables: [
-      { label: "A / Core Performance", title: "Performance Benchmarks", desc: "Optimized asset processing pipelines and clean runtime DOM nodes brought load targets and Lighthouse interaction metrics comfortably into the green zone." },
-      { label: "B / Scalability", title: "Modular Layouts", desc: "Component hierarchies use predictable atomic design structures, making it incredibly straightforward to drop in future software tools without triggering cascade break errors." },
-      { label: "C / Optimization", title: "API Interfacing", desc: "Outfitted transactional state endpoints with lightweight debouncing, cutting down redundant server traffic while keeping data feeds crisp and snappy." },
-      { label: "D / Access", title: "Fluid Adaptive Scaling", desc: "Flexible layout configurations pass automated accessibility and responsive styling validation checks across all modern browser configurations." }
+      { label: "A / Client Automation", title: "Automated Booking & Alerts", desc: "Built a seamless service request form integrated with automated WhatsApp confirmation notifications, eliminating manual outreach upon successful booking." },
+      { label: "B / Admin Operations", title: "Comprehensive Ticket Management", desc: "Equipped admins with robust capabilities to create requests, modify live device statuses, manage service center locations, and instantly generate official RO documents." },
+      { label: "C / Hardware Integration", title: "Walk-In Ticket Scanning", desc: "Implemented a lightweight, web-based barcode/QR scanning feature allowing service center agents to instantly look up and process walk-in customer tickets." },
+      { label: "D / Performance Optimization", title: "High-Throughput State Syncing", desc: "Optimized transactional endpoints with debounced state updates, ensuring rapid inventory and ticket data synchronization without causing database locks." }
     ],
     lighthouse: {
       performance: 92,
@@ -59,40 +59,40 @@ export const projects: ProjectProps[] = [
       seo: 90
     }
   },
-  {
-    id: "kozy",
-    title: "Kozy",
-    img: "/kozy.webp",
-    type: "Full Stack Web Development",
-    year: 2024,
-    url: "https://kozy-one.vercel.app",
-    desc: "Kozy is an end-to-end\nsolution for modern living.\nBuilt with performance in mind.",
-    stack: ["react", "tw", "py", "sql"],
-    overviewParagraphs: [
-      "Modern software deployments often suffer from structural friction where data delivery delays directly hinder the user experience. For this system framework, the primary engineering obstacle centered around reducing operational latencies, maintaining high system throughput, and designing clean interfaces that make data exploration intuitive.",
-      "During the initial analysis phase, diagnostics revealed significant bottlenecks within runtime re-renders and nested component trees. Without deep optimization, managing intensive user workflows created unnecessary layout shifts and visual stutter—negatively impacting conversion metrics and app reliability."
-    ],
-    architectureParagraphs: [
-      "To address these limitations, the architectural foundation was re-engineered from the ground up. By utilizing strict asynchronous state machines and decoupling core presentation layovers from backend transactional mechanisms, component dependencies dropped significantly.",
-      "This modular setup ensures that user updates scale smoothly while maintaining responsive cross-device views. Data validation runs inside automated pipelines, keeping state mutations clean and eliminating UI race conditions."
-    ],
-    designParagraphs: [
-      "Great interface engineering balances aesthetic restraint with rigorous logic. Layout designs are structured around precise reading paths, clear functional focus zones, and structured visual hierarchies. This ensures users can locate key controls effortlessly without cognitive overload.",
-      "Interactive patterns are paired with smooth CSS transform physics to ensure instant visual confirmation on every click. Elements rely on proportional paddings, crisp high-contrast headings, and fluid breakpoint adjustments to stay cohesive across mobile views and wide desktop arrays."
-    ],
-    deliverables: [
-      { label: "A / Core Performance", title: "Performance Benchmarks", desc: "Optimized asset processing pipelines and clean runtime DOM nodes brought load targets and Lighthouse interaction metrics comfortably into the green zone." },
-      { label: "B / Scalability", title: "Modular Layouts", desc: "Component hierarchies use predictable atomic design structures, making it incredibly straightforward to drop in future software tools without triggering cascade break errors." },
-      { label: "C / Optimization", title: "API Interfacing", desc: "Outfitted transactional state endpoints with lightweight debouncing, cutting down redundant server traffic while keeping data feeds crisp and snappy." },
-      { label: "D / Access", title: "Fluid Adaptive Scaling", desc: "Flexible layout configurations pass automated accessibility and responsive styling validation checks across all modern browser configurations." }
-    ],
-    lighthouse: {
-      performance: 92,
-      accessibility: 95,
-      bestPractices: 100,
-      seo: 90
-    }
-  },
+  // {
+  //   id: "kozy",
+  //   title: "Kozy",
+  //   img: "/kozy.webp",
+  //   type: "Full Stack Web Development",
+  //   year: 2024,
+  //   url: "https://kozy-one.vercel.app",
+  //   desc: "Kozy is an end-to-end\nsolution for modern living.\nBuilt with performance in mind.",
+  //   stack: ["react", "tw", "py", "sql"],
+  //   overviewParagraphs: [
+  //     "Modern software deployments often suffer from structural friction where data delivery delays directly hinder the user experience. For this system framework, the primary engineering obstacle centered around reducing operational latencies, maintaining high system throughput, and designing clean interfaces that make data exploration intuitive.",
+  //     "During the initial analysis phase, diagnostics revealed significant bottlenecks within runtime re-renders and nested component trees. Without deep optimization, managing intensive user workflows created unnecessary layout shifts and visual stutter—negatively impacting conversion metrics and app reliability."
+  //   ],
+  //   architectureParagraphs: [
+  //     "To address these limitations, the architectural foundation was re-engineered from the ground up. By utilizing strict asynchronous state machines and decoupling core presentation layovers from backend transactional mechanisms, component dependencies dropped significantly.",
+  //     "This modular setup ensures that user updates scale smoothly while maintaining responsive cross-device views. Data validation runs inside automated pipelines, keeping state mutations clean and eliminating UI race conditions."
+  //   ],
+  //   designParagraphs: [
+  //     "Great interface engineering balances aesthetic restraint with rigorous logic. Layout designs are structured around precise reading paths, clear functional focus zones, and structured visual hierarchies. This ensures users can locate key controls effortlessly without cognitive overload.",
+  //     "Interactive patterns are paired with smooth CSS transform physics to ensure instant visual confirmation on every click. Elements rely on proportional paddings, crisp high-contrast headings, and fluid breakpoint adjustments to stay cohesive across mobile views and wide desktop arrays."
+  //   ],
+  //   deliverables: [
+  //     { label: "A / Core Performance", title: "Performance Benchmarks", desc: "Optimized asset processing pipelines and clean runtime DOM nodes brought load targets and Lighthouse interaction metrics comfortably into the green zone." },
+  //     { label: "B / Scalability", title: "Modular Layouts", desc: "Component hierarchies use predictable atomic design structures, making it incredibly straightforward to drop in future software tools without triggering cascade break errors." },
+  //     { label: "C / Optimization", title: "API Interfacing", desc: "Outfitted transactional state endpoints with lightweight debouncing, cutting down redundant server traffic while keeping data feeds crisp and snappy." },
+  //     { label: "D / Access", title: "Fluid Adaptive Scaling", desc: "Flexible layout configurations pass automated accessibility and responsive styling validation checks across all modern browser configurations." }
+  //   ],
+  //   lighthouse: {
+  //     performance: 92,
+  //     accessibility: 95,
+  //     bestPractices: 100,
+  //     seo: 90
+  //   }
+  // },
   {
     id: "signify",
     title: "Signify",
