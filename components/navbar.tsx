@@ -5,6 +5,7 @@ import { FaHouse, FaLaptopCode } from "react-icons/fa6"
 import { IoMdCall } from "react-icons/io"
 import { FaBusinessTime } from "react-icons/fa"
 import { GoProjectRoadmap } from "react-icons/go"
+import { useLenis } from "@/components/smooth-scroll"
 
 interface ILinks {
   href: string;
@@ -22,6 +23,7 @@ const links: ILinks[] = [
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("")
+  const lenis = useLenis()
 
   useEffect(() => {
     const observerOptions = {
@@ -31,7 +33,6 @@ export default function Navbar() {
     }
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      // Calculate if we are currently at the absolute bottom of the document window
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50
 
       if (isAtBottom) {
@@ -54,7 +55,6 @@ export default function Navbar() {
       if (element) observer.observe(element)
     })
 
-    // Fallback listener: forces contact highlight if user quickly scrolls or snaps to bottom
     const handleScrollFallback = () => {
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50
       if (isAtBottom) {
@@ -70,6 +70,17 @@ export default function Navbar() {
     }
   }, [])
 
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>, href: string) {
+    const id = href.split("#")[1]
+    const target = document.getElementById(id)
+    if (!target) return // let the browser handle it if section isn't on this page
+
+    e.preventDefault()
+    lenis?.scrollTo(target, { offset: -80 })
+    // keep the URL hash in sync without triggering a native jump
+    window.history.pushState(null, "", href)
+  }
+
   return (
     <nav className="fixed top-0 right-1/2 translate-x-1/2 z-50 mt-6 flex items-center justify-between md:justify-center gap-4 md:gap-2 px-6 py-2.5 w-[calc(100%-2rem)] md:w-fit bg-neutral-900/30 border border-white/[0.06] backdrop-blur-xl rounded-full shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)] transition-all duration-300">
       {links.map((link, i) => {
@@ -78,13 +89,14 @@ export default function Navbar() {
           <a
             key={i}
             href={link.href}
+            onClick={(e) => handleClick(e, link.href)}
             className={`relative px-3 py-1.5 transition-all duration-300 flex items-center gap-2 rounded-full font-sans text-xs tracking-wide hover:scale-105 active:scale-95 ${
               isActive ? "text-blue-400 bg-white/4" : "text-white hover:text-blue-400"
             }`}
           >
             <span className="flex items-center justify-center">{link.icon}</span>
             <span className="hidden md:inline font-medium">{link.text}</span>
-            
+
             {isActive && (
               <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-300 rounded-full shadow-[0_0_8px_rgba(255,255,255,1)]" />
             )}

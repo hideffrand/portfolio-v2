@@ -41,10 +41,10 @@ export default function Footer() {
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
-                    setTriggered(true)
-                    observer.disconnect()
-                }
+                // Re-arm every time the footer crosses the threshold, in either
+                // direction — leaving resets it instantly (0ms, see below), and
+                // entering again replays the spring-out burst.
+                setTriggered(entry.isIntersecting)
             },
             { threshold: 0.4 }
         )
@@ -54,9 +54,12 @@ export default function Footer() {
 
     return (
         <div id="contact" className="relative mt-80" ref={ref}>
-            <h1 className="text-center text-2xl md:text-4xl mb-24 text-white font-light tracking-tight">
-                Let&apos;s Connect
-            </h1>
+            <div className="flex flex-col items-center space-y-2 mb-24">
+                <h1 className="text-center text-2xl md:text-4xl text-white font-light tracking-tight">
+                    Let&apos;s Connect or Say Hi !
+                </h1>
+                <p className="text-xs text-white/50">(promise u i will say hi back within 10minutes)</p>
+            </div>
 
             <footer className="relative pb-32 flex flex-col justify-between items-center">
 
