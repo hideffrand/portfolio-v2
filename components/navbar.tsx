@@ -15,8 +15,8 @@ interface ILinks {
 
 const links: ILinks[] = [
   { href: "/#home", text: "Home", icon: <FaHouse size={15} /> },
-  { href: "/#services", text: "Capabilities", icon: <FaLaptopCode size={16} /> },
-  { href: "/#experience", text: "Experience", icon: <FaBusinessTime size={16} /> },
+  { href: "/#services", text: "Skills", icon: <FaLaptopCode size={16} /> },
+  { href: "/#experience", text: "Experiences", icon: <FaBusinessTime size={16} /> },
   { href: "/#works", text: "Works", icon: <GoProjectRoadmap size={16} /> },
   { href: "/#contact", text: "Contact", icon: <IoMdCall size={16} /> },
 ]
