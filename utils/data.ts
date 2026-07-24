@@ -98,33 +98,56 @@ export const projects: ProjectProps[] = [
     title: "Signify",
     img: "/signify.webp",
     type: "UI/UX",
-    year: 2024,
+    year: 2025,
     url: "https://www.figma.com/proto/ueRKm0yUs3lxyh05T4RakR/Wireframe?page-id=0%3A1&node-id=654-3920&p=f&viewport=480%2C386%2C0.05&t=DsPof1akFJBtMk6u-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3&show-proto-sidebar=1",
-    desc: "A comprehensive digital design framework focusing on fluid components and modular layout structures.",
+
+    desc: "An AI-powered mobile application that bridges communication between the Deaf and hearing communities through real-time sign language translation, interactive learning, and an inclusive social platform.",
+
     stack: ["figma"],
+
     overviewParagraphs: [
-      "Signify explores the boundaries of micro-interactions and digital spacing rules inside responsive viewport architectures.",
-      "The initial wireframe exploration prioritized information layout efficiency over stylized color palettes to build underlying cognitive clarity."
+      "Signify was designed to reduce communication barriers faced by Indonesia's Deaf community by leveraging AI-powered gesture recognition. The application translates BISINDO and SIBI sign language into text or speech in real time while also converting spoken language into text for two-way communication.",
+      "Beyond translation, the platform encourages long-term inclusion through free sign language learning modules, an AI-assisted community space, and accessibility-first mobile experiences for both Deaf and non-disabled users."
     ],
+
     architectureParagraphs: [
-      "Built entirely inside advanced vector components utilizing deeply nested variants and properties parameters.",
-      "Design design systems scale predictably using rigid layout matrix components alongside baseline line heights."
+      "The application architecture revolves around six core experiences: AI Camera, Learn, Community, Dictionary, Daily Quiz, and Profile. Each module supports a specific stage of the user's journey—from instant communication to continuous learning and social engagement.",
+      "The interface was designed using a scalable component system in Figma with reusable design tokens, responsive layouts for mobile and tablet, consistent typography using Inter, and accessibility-focused color systems to maximize readability and usability."
     ],
+
     designParagraphs: [
-      "UI layouts are structured around strict reading blocks to guide interaction pathways across high-fidelity user workflows.",
-      "The layout transitions leverage consistent easing configurations to emulate native system hardware feedback behaviors."
+      "The user experience prioritizes accessibility through intuitive navigation, high visual contrast, clear content hierarchy, and simplified interaction flows. Every screen was designed to minimize cognitive load while supporting users with varying levels of sign language proficiency.",
+      "The design process included user testing with 14 participants, leading to improvements such as language consistency, Dark Mode support, enhanced community moderation, improved badge visibility, and refined interaction flows based on usability feedback."
     ],
+
     deliverables: [
-      { label: "A / Wireframing", title: "High Fidelity Prototypes", desc: "Interactive presentation spaces detailing multi-directional user state mutations and contextual conditional view gates." },
-      { label: "B / System", title: "Component Systems", desc: "Atomic asset sets constructed with responsive auto-layout features mapping precisely to standard frontend CSS rules." },
-      { label: "C / Assets", title: "Asset Specification Tokens", desc: "Unified style rules exporting direct hex coordinate keys and micro-spacing matrices across development steps." },
-      { label: "D / Review", title: "Usability Validations", desc: "User feedback trials confirming significant drops in task completion friction points during primary workflows." }
+      {
+        label: "A / Research",
+        title: "UX Research & Problem Validation",
+        desc: "Identified communication challenges experienced by Deaf users through literature studies, brainstorming sessions, user surveys, and pain-point analysis to define the application's core features."
+      },
+      {
+        label: "B / Design",
+        title: "End-to-End UI/UX Prototype",
+        desc: "Designed complete mobile and tablet experiences including authentication, AI Camera, Learn, Community, Dictionary, Daily Quiz, Profile, and Notification pages."
+      },
+      {
+        label: "C / Design System",
+        title: "Accessible Design Language",
+        desc: "Built a consistent design system using reusable Figma components, responsive layouts, Inter typography, accessibility-oriented color palettes, and standardized interaction patterns."
+      },
+      {
+        label: "D / Validation",
+        title: "Usability Testing & Iteration",
+        desc: "Conducted usability testing with 14 participants, analyzed user feedback, and iteratively improved navigation, language consistency, dark mode support, community features, and overall user experience."
+      }
     ],
+
     lighthouse: {
-      performance: 92,
-      accessibility: 95,
+      performance: 100,
+      accessibility: 100,
       bestPractices: 100,
-      seo: 90
+      seo: 100
     }
   },
   // {
@@ -168,31 +191,54 @@ export const projects: ProjectProps[] = [
     type: "Mobile App Development",
     year: 2024,
     url: "https://www.youtube.com/watch?v=8fVH6FajDVY",
-    desc: "A native cross-platform mobile application interface optimized for real-time tracking.",
+
+    desc: "A React Native mobile application that helps households manage waste through AI-powered recommendations, waste tracking, food expiration monitoring, and scheduled waste pickup.",
+
     stack: ["rn", "figma"],
+
     overviewParagraphs: [
-      "Mobile tracking deployments depend heavily on low-latency state caching and consistent viewport scaling logic.",
-      "This project implemented asynchronous loop state systems to ensure layout rendering stability during heavy background loads."
+      "GoWize is a smart household waste management application designed to encourage sustainable living by helping users monitor daily waste production, reduce food waste, and improve waste disposal efficiency. The platform combines practical household utilities with AI-driven recommendations to promote environmentally responsible habits.",
+      "The application enables users to record waste generation, request local waste pickup services, manage grocery inventories with expiration reminders, and receive personalized suggestions for recycling, DIY crafts, and recipes created from ingredients approaching their expiration date."
     ],
+
     architectureParagraphs: [
-      "The code relies on native execution paths alongside responsive vector transformation hooks to ensure display stability.",
-      "Hardware connection threads run inside isolated tasks, preventing view lockouts when updating large telemetry sets."
+      "The application is structured around four primary modules: Waste Tracking, Waste Pickup, Grocery Management, and AI Recommendations. Together these modules support the complete lifecycle of household waste management, from monitoring and prevention to disposal and reuse.",
+      "Developed as a mobile-first experience using React Native with UI prototypes designed in Figma, the application emphasizes intuitive navigation, simple data input, and notification-driven interactions to encourage consistent daily usage."
     ],
+
     designParagraphs: [
-      "The mobile layout uses thumb-accessible touch surfaces, persistent header components, and high-contrast night modes.",
-      "Data charts automatically shift layouts depending on hardware bounds to preserve readable info metrics."
+      "The user interface prioritizes simplicity and accessibility, allowing users of different technical backgrounds to quickly record waste, schedule pickups, and monitor household consumption. Clean layouts and streamlined navigation reduce friction across the application's primary workflows.",
+      "The experience is centered around encouraging sustainable behavior through timely reminders, visual summaries of waste generation, and actionable AI recommendations that transform household waste into reusable resources whenever possible."
     ],
+
     deliverables: [
-      { label: "A / Mobile", title: "Native Component Loops", desc: "High-performance interface rendering pipelines managing multi-layer layout sets without dipping frame rates." },
-      { label: "B / Tracking", title: "Telemetry Caching Blocks", desc: "Efficient queue storage handlers packing tracking state updates before dispatching data packets to remote servers." },
-      { label: "C / UI/UX", title: "Ergonomic Layout Grids", desc: "Touch-focused interaction systems optimized for fast access to primary functions during active use cases." },
-      { label: "D / Frame", title: "Adaptive Layout Scaling", desc: "Comprehensive interface configurations adjusting to standard screen safe-areas across device operating platforms." }
+      {
+        label: "A / Mobile",
+        title: "Cross-Platform Mobile Application",
+        desc: "Built a React Native application for Android featuring intuitive navigation, household waste monitoring, and community-focused environmental utilities."
+      },
+      {
+        label: "B / Smart Features",
+        title: "AI Waste Recommendation System",
+        desc: "Implemented intelligent recommendations that suggest recipes for expiring food and creative recycling ideas for plastic, paper, and metal waste."
+      },
+      {
+        label: "C / Household Management",
+        title: "Waste & Grocery Tracking",
+        desc: "Designed modules for recording daily waste generation, monitoring grocery expiration dates, reducing food waste, and generating monthly waste insights."
+      },
+      {
+        label: "D / Sustainability",
+        title: "Waste Pickup Integration",
+        desc: "Integrated scheduled waste pickup requests with local collection services, helping users dispose of household waste more efficiently while supporting cleaner communities."
+      }
     ],
+
     lighthouse: {
-      performance: 92,
-      accessibility: 95,
+      performance: 100,
+      accessibility: 100,
       bestPractices: 100,
-      seo: 90
+      seo: 100
     }
   },
   {
