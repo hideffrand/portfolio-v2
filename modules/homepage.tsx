@@ -38,24 +38,23 @@ export default function HomePage() {
                         <Greetings />
                     </span>
                     <span className="text-neutral-300">,</span>
-                    <span>I am</span>
+                    <span className="font-medium">I am</span>
                     {/* "Deff" underline with a subtle accent instead of browser default */}
                     <span
                         title="Call me Deff"
                         className="relative cursor-default"
                     >
-                        <span className="relative z-10">
+                        <span className="relative z-10 font-medium">
                             <span className="border-b border-white/40 pb-px">Deff</span>rand
                         </span>
                     </span>
-                    <span>Farera</span>
-                    <span className="text-neutral-300">,</span>
+                    <span className="font-medium">Farera</span>
                     {/* Mobile line-break word */}
-                    <span className="md:hidden">Software Engineer.</span>
+                    <span className="md:hidden font-medium">Software Engineer.</span>
                 </h1>
 
                 {/* Desktop second line */}
-                <h1 className="relative hidden text-5xl pb-1 text-white md:flex flex-wrap items-baseline gap-x-2 font-light tracking-tight">
+                <h1 className="relative hidden text-5xl pb-1 text-white md:flex flex-wrap items-baseline gap-x-2 font-light tracking-tight font-medium">
                     Software Engineer.
                 </h1>
 
@@ -74,7 +73,7 @@ export default function HomePage() {
                 <div className="mb-10 md:mb-12">
                     <h2
                         id="services"
-                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight"
+                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight font-medium"
                     >
                         What Can I Do?
                     </h2>
@@ -217,12 +216,9 @@ export default function HomePage() {
             {/* ─── Experiences ───────────────────────────────────────── */}
             <section className="relative z-10">
                 <div className="mt-24 mb-14 md:mt-40 md:mb-20 text-center">
-                    <p className="mb-3 text-[11px] uppercase tracking-[0.2em] text-neutral-500 font-medium">
-                        Track record
-                    </p>
                     <h2
                         id="experience"
-                        className="text-xl sm:text-2xl md:text-4xl text-white font-light tracking-tight"
+                        className="text-xl sm:text-2xl md:text-4xl text-white font-light tracking-tight font-medium"
                     >
                         Experiences
                     </h2>
@@ -295,12 +291,9 @@ export default function HomePage() {
             {/* ─── Selected Works ────────────────────────────────────── */}
             <section className="relative z-10">
                 <div className="mt-24 mb-12 md:mt-40 md:mb-16">
-                    <p className="mb-2 text-[11px] uppercase tracking-[0.2em] text-neutral-500 font-medium">
-                        Case studies
-                    </p>
                     <h2
                         id="works"
-                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight"
+                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight font-medium"
                     >
                         Selected Works
                     </h2>
