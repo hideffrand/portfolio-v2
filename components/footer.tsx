@@ -74,7 +74,7 @@ export default function Footer() {
                 <h1 className="text-center text-2xl md:text-4xl text-white font-light tracking-tight">
                     <span className="font-medium">Looking for a developer?</span>
                     <br />
-                    <span className="italic">You just found one.</span>
+                    <span className="italic">You just found one!</span>
                 </h1>
             </div>
 

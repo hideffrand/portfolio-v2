@@ -5,9 +5,12 @@ import Reveal from "@/components/reveal";
 import { experiences, techTag, projects } from "@/utils/data";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+
 
 export default function HomePage() {
     const router = useRouter()
+    const [expandedExp, setExpandedExp] = useState<Record<number, boolean>>({});
 
     function getZ(i: number) {
         return i + 1;
@@ -115,29 +118,30 @@ export default function HomePage() {
                         {/* Decorative image */}
                         <div className="absolute bottom-0 right-0 w-[50%] sm:w-[45%] pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:translate-y-[-4px]">
                             <Image
-                                className="w-full h-auto object-cover object-top"
-                                src="/deplix.webp"
+                                className="w-full h-auto object-cover object-top rounded-tl-md"
+                                src="/fe.png"
                                 width={600}
                                 height={600}
-                                alt="Frontend engineering interface"
+                                alt="Frontend"
+                                priority
                             />
                         </div>
 
                         {/* Cursor easter-egg */}
-                        <Image
+                        {/* <Image
                             className="absolute z-20 top-1/2 right-1/4 w-[12%] hidden md:block animate-pulse select-none pointer-events-none"
                             src="/cursor_select.png"
                             width={200}
                             height={200}
                             alt=""
                             aria-hidden
-                        />
+                        /> */}
                     </div>
 
                     {/* Backend */}
                     <div className="
                         relative group overflow-hidden
-                        rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md
+                        rounded-2xl border border-white/[0.07] bg-white/[0.14] backdrop-blur-md
                         p-5 sm:p-6 flex flex-col justify-between
                         transition-all duration-500
                         hover:border-white/[0.12] hover:bg-white/[0.05]
@@ -160,13 +164,14 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] sm:w-[85%] pointer-events-none transition-transform duration-700 ease-out group-hover:-translate-y-1">
+                        <div className="absolute bottom-0 left-3/4 md:left-1/2 -translate-x-1/2 w-[70%] sm:w-[85%] pointer-events-none transition-transform duration-700 ease-out group-hover:-translate-y-1">
                             <Image
-                                className="w-full h-auto object-contain"
-                                src="/backend_thumb.webp"
+                                className="w-full h-auto object-contain rounded-t-md"
+                                src="/be.png"
                                 width={800}
                                 height={800}
-                                alt="Data architecture diagram"
+                                alt="Backend"
+                                priority
                             />
                         </div>
                     </div>
@@ -201,11 +206,11 @@ export default function HomePage() {
                             so it no longer sits on top of the text at small widths */}
                         <div className="absolute bottom-[-10%] right-[-10%] w-[65%] xs:w-[55%] md:top-0 md:right-10 md:bottom-0 md:left-auto md:w-[40%] pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.02] opacity-60 md:opacity-100">
                             <Image
-                                className="w-full h-auto object-contain"
-                                src="/mobile_thumb2.png"
+                                className="w-full h-auto object-contain pt-1"
+                                src="/mobile.png"
                                 width={1200}
                                 height={1200}
-                                alt="Mobile app interface sample"
+                                alt="UIUX"
                                 priority
                             />
                         </div>
@@ -270,7 +275,25 @@ export default function HomePage() {
                                         <span className="mx-2 text-neutral-700">·</span>
                                         <span className="text-neutral-500">{exp.type}</span>
                                     </p>
-                                    <p className="text-sm text-neutral-300 leading-relaxed">{exp.desc}</p>
+                                    <div className="flex flex-col gap-2">
+                                        <ul className="space-y-1.5">
+                                            {(expandedExp[i] ? exp.desc : exp.desc.slice(0, 1)).map((line, k) => (
+                                                <li key={k} className="flex gap-2 text-sm text-neutral-300 leading-relaxed">
+                                                    <span className="text-neutral-600 shrink-0">—</span>
+                                                    <span>{line}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        {exp.desc.length > 1 && (
+                                            <button
+                                                onClick={() => setExpandedExp(prev => ({ ...prev, [i]: !prev[i] }))}
+                                                className="w-fit text-xs text-neutral-500 underline underline-offset-2 transition-colors hover:text-white"
+                                            >
+                                                {expandedExp[i] ? "Show less" : `Show ${exp.desc.length - 1} more`}
+                                            </button>
+                                        )}
+                                    </div>
                                     <div className="w-full pt-5 flex flex-wrap gap-2">
                                         {exp.stack.map((item, j) => (
                                             <div

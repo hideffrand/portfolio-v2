@@ -22,7 +22,7 @@ body {
 
 .base-bg {
   background: linear-gradient(to bottom, transparent, rgb(0, 0, 0)),
-    url("/bg-grid-2.png");
+    url("/bg-grid-3.png");
   background-position: unset;
   background-repeat: no-repeat;
   background-size: cover;

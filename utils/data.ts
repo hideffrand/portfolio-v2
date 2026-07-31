@@ -341,7 +341,7 @@ interface IExperience {
   time: string;
   at: string;
   type: string;
-  desc: string;
+  desc: string[];
   stack: string[];
 }
 
@@ -350,40 +350,63 @@ export const experiences: IExperience[] = [
     title: "Jr. Full Stack Developer",
     time: "Nov 2025 - Present",
     at: "PT. Zyrexindo Mandiri Buana Tbk",
-    type: "Fulltime",
-    desc: "Developed a logistics tracking system for a 120k-unit laptop distribution, integrating external API to manage 120k AWBs using Next.js and Go, with automated CRON-based backups to ensure data integrity and operational reliability.",
-    stack: ["next", "sql", "go", "py"],
+    type: "Full-time · On-site, Jakarta",
+    desc: [
+      "Developed a logistics tracking system for a 120k-unit government laptop distribution, integrating JNE's API to manage 120k AWBs using Next.js and Go, with automated CRON-based backups to ensure data integrity and operational reliability.",
+      "Built a Python-based archiving tool utilizing ThreadPoolExecutor to download and backup 700k audit-required images from external cloud storage to physical drives.",
+      "Enhanced customer experience by creating a service booking system integrated with Qontak API to automate real-time service confirmations and customer responses using Next.js and Go.",
+      "Redesigned the corporate website from Figma to production, focusing on SEO optimization and user-centric UI/UX, and standardized DevOps workflows by implementing GitLab CI/CD pipelines to automate deployments.",
+    ],
+    stack: ["next", "ts", "tw", "sql", "go", "py"],
   },
   {
     title: "Implementation Consultant",
     time: "Jun 2025 - Aug 2025",
-    at: "PT. Indodev Niaga Internet",
-    type: "Internship",
-    desc: "Solved custom payroll modules bugs using ColdFusion and SQL. Utilized Excel to automatically generate bulk SQL statements to fix client's issues on data side.",
+    at: "DataOn - PT. Indodev Niaga Internet",
+    type: "Internship · On-site, Tangerang",
+    desc: [
+      "Solved and delivered custom payroll modules on SunFish HRIS using ColdFusion and SQL.",
+      "Utilized Excel to automatically generate bulk SQL statements to fix client's issues.",
+      "Involved with multinational companies projects such as Johnson Controls (Singapore) and CEVA Logistics (Malaysia), and exposed to the Singapore payroll system.",
+    ],
     stack: ["cf", "sql"],
   },
   {
     title: "Frontend Developer",
     time: "Feb 2025 - May 2025",
-    at: "PT. Kreasi Untuk Indonesia",
-    type: "Internship",
-    desc: "Assist in revamping the kuyy.id website for improved SEO performance using NextJS and Help implement websites for clients (Kuyy for Business)",
+    at: "Kuyy! - PT. Kreasi Untuk Indonesia",
+    type: "Internship · Remote, Jakarta",
+    desc: [
+      "Assist in revamping the kuyy.id website for improved SEO performance using Next.js, TypeScript, and Tailwind CSS.",
+      "Help implement websites for clients (Kuyy for Business).",
+      "Proposed and designed blog UI/UX improvements, including Related Blogs and Activities features to boost content discoverability and new entrypoint for Activity feature.",
+    ],
     stack: ["next", "tw", "ts"],
   },
   {
     title: "Implementation Consultant",
-    time: "Jun 2024 - Sept 2024",
-    at: "PT. Indodev Niaga Internet",
-    type: "Internship",
-    desc: "Delivered 5 customized finance report modules according to client's requirements on both backend and frontend using ColdFusion, SQL (MariaDB), and React.js",
+    time: "Jun 2024 - Sep 2024",
+    at: "DataOn - PT. Indodev Niaga Internet",
+    type: "Internship · On-site, Tangerang",
+    desc: [
+      "Delivered 5 customized finance report modules according to client's requirements on both backend and frontend using ColdFusion, SQL (MariaDB), and React.js. Documented all customization specs to ensure smooth handover.",
+      "Compare and adjust client's data using SQL queries and manually using Excel to ensure data integrity across Workplaze HRIS.",
+      "Performed 30+ User Acceptance Testing (UAT) on Workplaze Annual Leave feature.",
+      "Involved with multinational companies projects such as AirAsia, Johnson Controls (Singapore), and CEVA Logistics (Malaysia).",
+    ],
     stack: ["react", "cf", "sql"],
   },
   {
-    title: "Web Designer",
+    title: "Website Designer",
     time: "May 2023 - May 2025",
-    at: "Calvin Institute of Technology",
-    type: "Part-time",
-    desc: "Resolved frontend issues with Chrome DevTools, designed 9+ promotional landing pages, captured leads using WIX storage, and redesigned calvin.ac.id's homepage for improved UX and UI.",
+    at: "Calvin Institute of Technology (CIT)",
+    type: "Part-time · Hybrid, Jakarta",
+    desc: [
+      "Debugged and solved frontend issues using Chrome DevTools.",
+      "Designed 9+ landing pages for upcoming events or promos and utilized WIX storage to capture leads and maintained existing websites.",
+      "Work closely with the Rectorate to make landing pages for the launching of CIT's new faculty.",
+      "Redesigned calvin.ac.id homepage to ensure a good UX and fresh UI.",
+    ],
     stack: ["figma", "css", "wp", "wix"],
   },
 ];
