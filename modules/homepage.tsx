@@ -76,12 +76,12 @@ export default function HomePage() {
                 <div className="mb-10 md:mb-12">
                     <h2
                         id="services"
-                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight font-medium"
+                        className="text-xl sm:text-2xl md:text-4xl text-white tracking-tight font-medium mb-3"
                     >
                         What Can I Do?
                     </h2>
                     <p className="text-neutral-300 text-sm md:text-base max-w-lg leading-relaxed">
-                        Full-stack web systems development, third-party API integration, and product design.
+                        End-to-end web systems engineering, third-party API integration, and product UI/UX design.
                     </p>
                 </div>
 
@@ -90,24 +90,23 @@ export default function HomePage() {
 
                     {/* Frontend */}
                     <div className="
-                        md:col-span-2 relative group overflow-hidden
-                        rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md
-                        p-5 sm:p-6 flex flex-col justify-between
-                        transition-all duration-500
-                        hover:border-white/[0.12] hover:bg-white/[0.05]
-                        hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
-                    ">
-                        {/* Inset top highlight */}
+      md:col-span-2 relative group overflow-hidden
+      rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md
+      p-5 sm:p-6 flex flex-col justify-between
+      transition-all duration-500
+      hover:border-white/[0.12] hover:bg-white/[0.05]
+      hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
+    ">
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10">
                             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">01 — Interface</span>
                             <h3 className="text-base font-medium text-white mt-2 tracking-tight">Frontend Engineering</h3>
                             <p className="text-neutral-300 text-sm max-w-[85%] sm:max-w-sm mt-2 leading-relaxed">
-                                Responsive web applications optimised for speed, accessibility metrics, and design-to-production precision.
+                                Polished web applications engineered for SEO performance, content discoverability, and precision Figma-to-production execution.
                             </p>
                             <div className="flex gap-2 mt-4 flex-wrap">
-                                {["Next.js", "TypeScript", "Tailwind CSS"].map(tag => (
+                                {["Next.js", "TypeScript", "Tailwind CSS", "React.js"].map(tag => (
                                     <span key={tag} className="text-[11px] bg-white/[0.05] text-neutral-400 px-2.5 py-1 rounded-lg border border-white/[0.07]">
                                         {tag}
                                     </span>
@@ -115,7 +114,6 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        {/* Decorative image */}
                         <div className="absolute bottom-0 right-0 w-[50%] sm:w-[45%] pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.04] group-hover:translate-y-[-4px]">
                             <Image
                                 className="w-full h-auto object-cover object-top rounded-tl-md"
@@ -126,37 +124,27 @@ export default function HomePage() {
                                 priority
                             />
                         </div>
-
-                        {/* Cursor easter-egg */}
-                        {/* <Image
-                            className="absolute z-20 top-1/2 right-1/4 w-[12%] hidden md:block animate-pulse select-none pointer-events-none"
-                            src="/cursor_select.png"
-                            width={200}
-                            height={200}
-                            alt=""
-                            aria-hidden
-                        /> */}
                     </div>
 
                     {/* Backend */}
                     <div className="
-                        relative group overflow-hidden
-                        rounded-2xl border border-white/[0.07] bg-white/[0.14] backdrop-blur-md
-                        p-5 sm:p-6 flex flex-col justify-between
-                        transition-all duration-500
-                        hover:border-white/[0.12] hover:bg-white/[0.05]
-                        hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
-                    ">
+      relative group overflow-hidden
+      rounded-2xl border border-white/[0.07] bg-white/[0.14] backdrop-blur-md
+      p-5 sm:p-6 flex flex-col justify-between
+      transition-all duration-500
+      hover:border-white/[0.12] hover:bg-white/[0.05]
+      hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
+    ">
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10">
                             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">02 — Architecture</span>
-                            <h3 className="text-base font-medium text-white mt-2 tracking-tight">Backend Systems</h3>
+                            <h3 className="text-base font-medium text-white mt-2 tracking-tight">Backend & Systems</h3>
                             <p className="text-neutral-300 text-sm mt-2 leading-relaxed">
-                                Scalable RESTful APIs, scheduled automations, and transactional database schema design.
+                                Scalable RESTful APIs, multi-threaded automation scripts, automated CRON-based tasks, and SQL database design.
                             </p>
                             <div className="flex gap-2 mt-4 flex-wrap">
-                                {["Go", "Python", "SQL"].map(tag => (
+                                {["Go", "Python", "SQL", "Express.js"].map(tag => (
                                     <span key={tag} className="text-[11px] bg-white/[0.05] text-neutral-400 px-2.5 py-1 rounded-lg border border-white/[0.07]">
                                         {tag}
                                     </span>
@@ -178,23 +166,23 @@ export default function HomePage() {
 
                     {/* UI/UX */}
                     <div className="
-                        md:col-span-3 relative group overflow-hidden
-                        rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md
-                        p-5 sm:p-6 flex flex-col justify-between
-                        transition-all duration-500
-                        hover:border-white/[0.12] hover:bg-white/[0.05]
-                        hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
-                    ">
+      md:col-span-3 relative group overflow-hidden
+      rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-md
+      p-5 sm:p-6 flex flex-col justify-between
+      transition-all duration-500
+      hover:border-white/[0.12] hover:bg-white/[0.05]
+      hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.07)]
+    ">
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10">
                             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">03 — Experience</span>
                             <h3 className="text-base font-medium text-white mt-2 tracking-tight">Product UI/UX Design</h3>
                             <p className="text-neutral-300 text-sm max-w-[70%] sm:max-w-md mt-2 leading-relaxed">
-                                Interfaces structured around logical information discovery, functional data-entry workflows, and visual clarity.
+                                User-centric UI/UX improvements, wireframes, and prototypes structured to enhance discoverability and user flow.
                             </p>
                             <div className="flex gap-2 mt-4 flex-wrap">
-                                {["Figma", "Wireframing", "Prototyping"].map(tag => (
+                                {["Figma", "Wireframing", "Prototyping", "User Flow"].map(tag => (
                                     <span key={tag} className="text-[11px] bg-white/[0.05] text-neutral-400 px-2.5 py-1 rounded-lg border border-white/[0.07]">
                                         {tag}
                                     </span>
@@ -202,12 +190,10 @@ export default function HomePage() {
                             </div>
                         </div>
 
-                        {/* Positioned as a corner accent on mobile instead of a full-bleed overlay,
-                            so it no longer sits on top of the text at small widths */}
                         <div className="absolute bottom-[-10%] right-[-10%] w-[65%] xs:w-[55%] md:top-0 md:right-10 md:bottom-0 md:left-auto md:w-[40%] pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.02] opacity-60 md:opacity-100">
                             <Image
                                 className="w-full h-auto object-contain pt-1"
-                                src="/mobile.png"
+                                src="/mobile2.png"
                                 width={1200}
                                 height={1200}
                                 alt="UIUX"
