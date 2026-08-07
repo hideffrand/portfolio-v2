@@ -16,7 +16,7 @@ export interface ProjectProps {
     title: string;
     desc: string;
   }[];
-  lighthouse: {
+  lighthouse?: {
     performance: number;
     accessibility: number;
     bestPractices: number;
@@ -35,6 +35,34 @@ export function isLiveWebUrl(url: string): boolean {
 }
 
 export const projects: ProjectProps[] = [
+  {
+    id: "home-lab",
+    title: "Home Lab",
+    img: "/zyrex-cs.png",
+    type: "Self-Hosted Infrastructure",
+    year: 2026,
+    url: "",
+    desc: "A small private home lab linking two laptops and a phone into one mesh network for file sharing, monitoring, and secure remote access.",
+    stack: ["tailscale", "samba", "nfs", "ssh", "glances", "linux"],
+    overviewParagraphs: [
+      "A personal home lab built to bridge two laptops and a mobile phone into a single private network, sharing files and system metrics across devices without exposing anything to the public internet. The goal was the smallest useful infrastructure stack: dependable file sharing, remote monitoring, and safe SSH access between devices that regularly sit on different networks.",
+      "The initial constraint was connectivity. The laptops and phone roam between home, office, and mobile hotspots, so a fixed public IP or a port-forwarded NAS was never an option. Any solution had to work behind NAT, require no static public address, and stay reachable from anywhere."
+    ],
+    architectureParagraphs: [
+      "The network layer is built on Tailscale, which replaces public-IP routing with a WireGuard-based mesh. Every device gets a stable private address from the tailnet regardless of the network it currently sits behind, so Samba and NFS shares resolve to the same hostname from home, office, or a hotel hotspot. SSH and Glances bind to the tailnet interface only, keeping every service off the public internet.",
+      "File sharing is split by use case: Samba handles SMB mounts for the Windows laptop and the Android phone, while NFS serves the Linux laptop with lower overhead. Both export the same set of directories, and access is scoped by tailnet identity rather than raw IP allow-lists."
+    ],
+    designParagraphs: [
+      "There is no UI to speak of — the design work is in the security and access model. SSH was hardened to a minimum: the default port moved to a non-standard one, password authentication is disabled, only key-based login is permitted, and root login is blocked. Each device keeps its own keypair, so revoking a device from the tailnet immediately kills its access to every share and shell.",
+      "Glances runs as the monitoring layer, exposing a read-only web dashboard over Tailscale for CPU, memory, disk, and network usage across the mesh. The dashboard is only reachable through the tailnet, giving a full view of the lab without opening a single inbound port."
+    ],
+    deliverables: [
+      { label: "A / Networking", title: "Tailscale Mesh", desc: "Replaced public-IP exposure with a private WireGuard mesh, giving every device a stable address across home, office, and mobile networks." },
+      { label: "B / Sharing", title: "Samba + NFS Shares", desc: "Set up SMB shares for the Windows laptop and phone plus NFS exports for the Linux laptop, all backed by the same directories." },
+      { label: "C / Access", title: "Hardened SSH", desc: "Moved SSH off the default port, disabled password auth and root login, and enforced key-based access scoped to the tailnet." },
+      { label: "D / Monitoring", title: "Glances Dashboard", desc: "Deployed Glances as a read-only monitoring dashboard reachable only inside the tailnet." }
+    ]
+  },
   {
     id: "zyrex-cs",
     title: "Zyrex CS",
@@ -343,6 +371,30 @@ export const techTag: Record<string, ITechTag> = {
   wp: {
     label: "WordPress",
     style: "bg-[rgb(39,138,127,0.2)] text-[rgb(80,158,140)]",
+  },
+  tailscale: {
+    label: "Tailscale",
+    style: "bg-[rgb(0,70,100,0.2)] text-[rgb(0,160,220)]",
+  },
+  samba: {
+    label: "Samba",
+    style: "bg-[rgb(120,60,0,0.2)] text-[rgb(240,140,60)]",
+  },
+  nfs: {
+    label: "NFS",
+    style: "bg-[rgb(0,60,90,0.2)] text-[rgb(60,160,220)]",
+  },
+  ssh: {
+    label: "SSH",
+    style: "bg-[rgb(0,80,60,0.2)] text-[rgb(0,220,180)]",
+  },
+  glances: {
+    label: "Glances",
+    style: "bg-[rgb(100,70,0,0.2)] text-[rgb(230,170,60)]",
+  },
+  linux: {
+    label: "Linux",
+    style: "bg-[rgb(100,100,100,0.2)] text-[rgb(200,200,200)]",
   },
 };
 
