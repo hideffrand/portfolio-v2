@@ -1,8 +1,9 @@
-import { projects, techTag, type ProjectProps } from "@/utils/data"
+import { isLiveWebUrl, projects, techTag, type ProjectProps } from "@/utils/data"
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import type { ReactNode } from "react"
+import LiveLighthouse from "@/components/live-lighthouse"
 
 interface PageProps {
     params: Promise<{ id: string }>
@@ -162,13 +163,17 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     )}
 
                     {project.lighthouse && (
-                        <LogEntry index="05" label="Metrics">
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10">
-                                <Metric label="Performance" value={project.lighthouse.performance} />
-                                <Metric label="Accessibility" value={project.lighthouse.accessibility} />
-                                <Metric label="Best Practices" value={project.lighthouse.bestPractices} />
-                                <Metric label="SEO" value={project.lighthouse.seo} />
-                            </div>
+                        <LogEntry index="05" label={isLiveWebUrl(project.url) ? "Lighthouse" : "Metrics"}>
+                            {isLiveWebUrl(project.url) ? (
+                                <LiveLighthouse url={project.url} fallback={project.lighthouse} />
+                            ) : (
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-10">
+                                    <Metric label="Performance" value={project.lighthouse.performance} />
+                                    <Metric label="Accessibility" value={project.lighthouse.accessibility} />
+                                    <Metric label="Best Practices" value={project.lighthouse.bestPractices} />
+                                    <Metric label="SEO" value={project.lighthouse.seo} />
+                                </div>
+                            )}
                         </LogEntry>
                     )}
 

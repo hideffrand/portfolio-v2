@@ -24,6 +24,16 @@ export interface ProjectProps {
   };
 }
 
+export function isLiveWebUrl(url: string): boolean {
+  const blocked = ["youtube.com", "youtu.be", "vimeo.com", "figma.com"]
+  try {
+    const host = new URL(url).hostname
+    return !blocked.some((b) => host === b || host.endsWith(`.${b}`))
+  } catch {
+    return false
+  }
+}
+
 export const projects: ProjectProps[] = [
   {
     id: "zyrex-cs",
