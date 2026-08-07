@@ -38,7 +38,7 @@ export const projects: ProjectProps[] = [
   {
     id: "home-lab",
     title: "Home Lab",
-    img: "/zyrex-cs.png",
+    img: "/homelab.png",
     type: "Self-Hosted Infrastructure",
     year: 2026,
     url: "",
