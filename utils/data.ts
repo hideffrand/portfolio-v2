@@ -36,31 +36,31 @@ export function isLiveWebUrl(url: string): boolean {
 
 export const projects: ProjectProps[] = [
   {
-    id: "home-lab",
-    title: "Home Lab",
+    id: "minilab",
+    title: "Minilab",
     img: "/homelab.png",
-    type: "Self-Hosted Infrastructure",
+    type: "Mobile + Backend Development",
     year: 2026,
     url: "",
-    desc: "A small private home lab linking two laptops and a phone into one mesh network for file sharing, monitoring, and secure remote access.",
-    stack: ["tailscale", "samba", "nfs", "ssh", "glances", "linux"],
+    desc: "A private remote-control layer for a home Linux machine — an Android app and a tiny Go agent that talk over Tailscale to browse files, watch system health, and reboot without opening a single port.",
+    stack: ["go", "rn", "ts", "expo", "tailscale", "linux"],
     overviewParagraphs: [
-      "A personal home lab built to bridge two laptops and a mobile phone into a single private network, sharing files and system metrics across devices without exposing anything to the public internet. The goal was the smallest useful infrastructure stack: dependable file sharing, remote monitoring, and safe SSH access between devices that regularly sit on different networks.",
-      "The initial constraint was connectivity. The laptops and phone roam between home, office, and mobile hotspots, so a fixed public IP or a port-forwarded NAS was never an option. Any solution had to work behind NAT, require no static public address, and stay reachable from anywhere."
+      "Minilab is a remote-control layer for a Linux machine that roams across networks. The laptop lives on home Wi-Fi, office networks, and phone hotspots, so any fixed-IP or port-forwarded setup was off the table. The working design is two pieces: a single-binary Go agent that runs on the machine and an Expo/React Native Android app that controls it. They meet on Tailscale, an encrypted peer-to-peer VPN, so the app reaches the agent by tailnet address and the router never needs a single inbound port opened.",
+      "The feature set was kept deliberately small: a file manager (browse, upload, download, rename, copy, move, delete, and stream previews of photos and video), a live system-health dashboard, and guarded reboot/shutdown. The real constraint was setup friction — the goal was one command on the server, one QR scan on the phone, and no IP addresses or API keys typed by hand anywhere."
     ],
     architectureParagraphs: [
-      "The network layer is built on Tailscale, which replaces public-IP routing with a WireGuard-based mesh. Every device gets a stable private address from the tailnet regardless of the network it currently sits behind, so Samba and NFS shares resolve to the same hostname from home, office, or a hotel hotspot. SSH and Glances bind to the tailnet interface only, keeping every service off the public internet.",
-      "File sharing is split by use case: Samba handles SMB mounts for the Windows laptop and the Android phone, while NFS serves the Linux laptop with lower overhead. Both export the same set of directories, and access is scoped by tailnet identity rather than raw IP allow-lists."
+      "Backend is Go 1.22 with a single external dependency (go-qrcode, used only to render the pairing QR in the terminal). Method-based routing keeps the mux explicit: /api/health is public, everything under /api/files/ and /api/system/ is wrapped in a constant-time API-key middleware. Every user path goes through a resolver that rejects traversal attempts, absolute paths, and symlinks pointing outside the configured root — so even a compromised key can't reach beyond the allowed folder. Previews stream through http.ServeContent, which gives HTTP Range support and lets the app scrub videos; uploads are capped at 2 GiB and request bodies are read without a deadline so large transfers over slow links don't time out.",
+      "System stats are read straight from /proc and sysfs — CPU utilization from two /proc/stat samples 200ms apart, memory from meminfo, disk from statfs, temperature from thermal zones — with no monitoring daemon required. Reboot and shutdown run systemctl under a scoped passwordless sudo rule that covers exactly those two commands and nothing else. Pairing packs the device name, base URL, and API key into a MINILAB1: prefixed base64 payload, printed as both a terminal QR and copyable text; the agent auto-detects the Tailscale IP, then falls back to the LAN IP."
     ],
     designParagraphs: [
-      "There is no UI to speak of — the design work is in the security and access model. SSH was hardened to a minimum: the default port moved to a non-standard one, password authentication is disabled, only key-based login is permitted, and root login is blocked. Each device keeps its own keypair, so revoking a device from the tailnet immediately kills its access to every share and shell.",
-      "Glances runs as the monitoring layer, exposing a read-only web dashboard over Tailscale for CPU, memory, disk, and network usage across the mesh. The dashboard is only reachable through the tailnet, giving a full view of the lab without opening a single inbound port."
+      "The UX was built around removing every reason to type. A QR scan or a pasted code fills in the server name, URL, and API key automatically; a manual mode exists but nothing in the normal flow needs it. Android-first constraints shaped the interaction layer — the long-press file menu uses a custom ActionSheet because Android's Alert caps at three buttons, and the dashboard opens straight on a live health overview with a row of chips to switch between paired machines.",
+      "The destructive paths got the most design attention. Reboot and shutdown are guarded by a type-to-confirm modal that shows a random token (e.g. RAVEN-HARBOR-42) and keeps the confirm button disabled until it's typed, GitHub-style. API keys live in expo-secure-store on Android's Keystore rather than AsyncStorage, pairing codes are treated as passwords in the docs, the uninstaller never deletes files without a typed DELETE, and the agent never leaks filesystem paths to clients in error messages."
     ],
     deliverables: [
-      { label: "A / Networking", title: "Tailscale Mesh", desc: "Replaced public-IP exposure with a private WireGuard mesh, giving every device a stable address across home, office, and mobile networks." },
-      { label: "B / Sharing", title: "Samba + NFS Shares", desc: "Set up SMB shares for the Windows laptop and phone plus NFS exports for the Linux laptop, all backed by the same directories." },
-      { label: "C / Access", title: "Hardened SSH", desc: "Moved SSH off the default port, disabled password auth and root login, and enforced key-based access scoped to the tailnet." },
-      { label: "D / Monitoring", title: "Glances Dashboard", desc: "Deployed Glances as a read-only monitoring dashboard reachable only inside the tailnet." }
+      { label: "A / Agent", title: "Go Backend Agent", desc: "A single-binary Go HTTP agent with one external dependency, exposing a filesystem sandbox that blocks path traversal, absolute paths, and symlink escapes beyond the configured root." },
+      { label: "B / App", title: "Android Control App", desc: "An Expo/React Native app with a full file manager (upload/download, rename, copy, move, delete), streamed media previews with seek support, and a share sheet for other apps." },
+      { label: "C / Pairing", title: "Zero-Typing Onboarding", desc: "One install command prints a QR code plus a MINILAB1: pairing code; scanning or pasting it fills in the server name, URL, and API key with no manual IP entry." },
+      { label: "D / Control", title: "System Health + Power", desc: "A live dashboard reading CPU, memory, disk, load, uptime, and temperature straight from /proc and sysfs, plus reboot/shutdown guarded by a type-to-confirm token." }
     ]
   },
   {
@@ -358,6 +358,10 @@ export const techTag: Record<string, ITechTag> = {
   },
   rn: {
     label: "React Native",
+    style: "bg-[rgb(0,70,50,0.2)] text-[rgb(0,200,240)]",
+  },
+  expo: {
+    label: "Expo",
     style: "bg-[rgb(0,70,50,0.2)] text-[rgb(0,200,240)]",
   },
   figma: {
