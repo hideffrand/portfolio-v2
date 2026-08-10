@@ -5,6 +5,7 @@ import Footer from "@/components/footer";
 import BackToTop from "@/components/back-to-top";
 import Navbar from "@/components/navbar";
 import SmoothScroll from "@/components/smooth-scroll";
+import VisitTracker from "@/components/visit-tracker";
 
 
 const poppins = Poppins({
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <SmoothScroll>
           <Navbar />
+          <VisitTracker />
           <div className="base-bg w-full h-screen fixed"></div>
           <div className="max-w-6xl w-full px-4 md:px-8 mx-auto">
             {children}
