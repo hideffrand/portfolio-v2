@@ -297,12 +297,11 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* ─── Selected Works ────────────────────────────────────── */}
             <section className="relative z-10">
                 <div className="mt-24 mb-12 md:mt-40 md:mb-16">
                     <h2
                         id="works"
-                        className="text-xl sm:text-2xl md:text-4xl text-white font-light mb-3 tracking-tight font-medium"
+                        className="text-xl sm:text-2xl md:text-4xl text-white mb-3 tracking-tight font-medium"
                     >
                         Selected Works
                     </h2>
@@ -317,32 +316,31 @@ export default function HomePage() {
                             <div
                                 key={project.title}
                                 className="
-                                    group sticky my-3 p-4 sm:p-5 w-full rounded-2xl
-                                    border border-white/[0.07] bg-white/[0.03] backdrop-blur-lg
-                                    flex flex-col md:flex-row gap-4 sm:gap-5 items-start
-                                    cursor-pointer
-                                    transition-all duration-400 ease-out
-                                    hover:border-white/[0.12] hover:bg-white/[0.05]
-                                    hover:shadow-[0_8px_48px_-12px_rgba(0,0,0,0.7)]
-                                    hover:rotate-[0.4deg]
-                                "
+                        group sticky my-3 p-4 sm:p-5 w-full rounded-2xl
+                        border border-white/[0.07] bg-white/[0.03] backdrop-blur-lg
+                        flex flex-col md:flex-row gap-4 sm:gap-5 items-start
+                        cursor-pointer
+                        transition-all duration-400 ease-out
+                        hover:border-white/[0.12] hover:bg-white/[0.05]
+                        hover:shadow-[0_8px_48px_-12px_rgba(0,0,0,0.7)]
+                        hover:rotate-[0.4deg]
+                    "
                                 style={{ top: getTop(i), zIndex: getZ(i) }}
                                 onClick={() => router.push(`/${project.id}`)}
                             >
-                                {/* Top shine */}
                                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px rounded-t-2xl bg-gradient-to-r from-transparent via-white/12 to-transparent" />
 
-                                <Image
-                                    src={project.img}
-                                    alt={project.title}
-                                    width={800}
-                                    height={800}
-                                    className="w-full md:w-2/3 h-auto rounded-xl transition-transform duration-500 ease-out group-hover:scale-[1.01]"
-                                    priority
-                                />
+                                <div className="relative w-full md:w-3/5 aspect-[16/9] shrink-0 overflow-hidden rounded-xl">
+                                    <Image
+                                        src={project.img}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                                        priority
+                                    />
+                                </div>
 
                                 <div className="w-full flex flex-col justify-between items-start gap-4 sm:gap-6">
-                                    {/* Title row */}
                                     <div className="w-full flex justify-between items-start gap-4 pt-1 sm:pt-2">
                                         <p className="text-white font-semibold text-lg sm:text-xl leading-snug tracking-tight">
                                             {project.title}
@@ -352,12 +350,10 @@ export default function HomePage() {
                                         </p>
                                     </div>
 
-                                    {/* Index rule */}
                                     <div className="w-full flex justify-between text-neutral-700 text-sm border-b border-white/[0.08] pb-3">
                                         <span>0{i + 1}</span>
                                     </div>
 
-                                    {/* Stack tags */}
                                     <div className="flex flex-wrap gap-2">
                                         {project.stack.map((item, j) => (
                                             <div
@@ -369,15 +365,14 @@ export default function HomePage() {
                                         ))}
                                     </div>
 
-                                    {/* CTA */}
                                     <a
                                         href={project.url}
                                         onClick={e => e.stopPropagation()}
                                         className="
-                                            inline-flex items-center gap-1.5 text-sm text-neutral-300
-                                            transition-colors duration-200 hover:text-white
-                                            underline underline-offset-2
-                                        "
+                                inline-flex items-center gap-1.5 text-sm text-neutral-300
+                                transition-colors duration-200 hover:text-white
+                                underline underline-offset-2
+                            "
                                     >
                                         See Details
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>

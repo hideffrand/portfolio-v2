@@ -38,7 +38,7 @@ export const projects: ProjectProps[] = [
   {
     id: "minilab",
     title: "Minilab",
-    img: "/homelab.png",
+    img: "/minilab.png",
     type: "Mobile + Backend Development",
     year: 2026,
     url: "",

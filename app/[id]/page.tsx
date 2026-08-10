@@ -121,9 +121,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                     className="object-contain"
                                 />
                             </div>
-                            <figcaption className="mt-3 text-[11px] uppercase tracking-[0.18em] text-neutral-500 font-medium">
+                            {/* <figcaption className="mt-3 text-[11px] uppercase tracking-[0.18em] text-neutral-500 font-medium">
                                 Fig. 1 — {project.title} interface
-                            </figcaption>
+                            </figcaption> */}
                         </figure>
                     </LogEntry>
 
