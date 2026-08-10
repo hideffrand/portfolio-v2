@@ -366,7 +366,7 @@ export default function HomePage() {
                                     </div>
 
                                     <a
-                                        href={project.url}
+                                        href={`/${project.id}`}
                                         onClick={e => e.stopPropagation()}
                                         className="
                                 inline-flex items-center gap-1.5 text-sm text-neutral-300
