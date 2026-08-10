@@ -111,14 +111,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         <p className="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl">
                             {firstParagraph(project.overviewParagraphs)}
                         </p>
-                        <figure className="mt-10 max-w-md">
-                            <div className="relative w-full aspect-[4/3] border border-neutral-800/80">
+                        <figure className="mt-10 max-w-2xl">
+                            <div className="relative w-full aspect-video border border-neutral-800/80 bg-black/50 overflow-hidden">
                                 <Image
                                     src={project.img}
                                     alt={`${project.title} interface`}
                                     fill
-                                    sizes="(max-width: 768px) 100vw, 400px"
-                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 672px"
+                                    className="object-contain"
                                 />
                             </div>
                             <figcaption className="mt-3 text-[11px] uppercase tracking-[0.18em] text-neutral-500 font-medium">
