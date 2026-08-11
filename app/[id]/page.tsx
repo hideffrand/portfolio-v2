@@ -111,32 +111,34 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         <p className="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl">
                             {firstParagraph(project.overviewParagraphs)}
                         </p>
-                        <figure className="mt-10 max-w-2xl">
-                            <div className="relative w-full aspect-video border border-neutral-800/80 bg-black/50 overflow-hidden">
-                                <Image
-                                    src={project.img}
-                                    alt={`${project.title} interface`}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 672px"
-                                    className="object-contain"
-                                />
-                            </div>
-                            {/* <figcaption className="mt-3 text-[11px] uppercase tracking-[0.18em] text-neutral-500 font-medium">
-                                Fig. 1 — {project.title} interface
-                            </figcaption> */}
-                        </figure>
+                        <ProjectFigure
+                            src={project.img}
+                            alt={`${project.title} interface`}
+                        />
                     </LogEntry>
 
                     <LogEntry index="02" label="Build">
                         <p className="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl">
                             {firstParagraph(project.architectureParagraphs)}
                         </p>
+                        {project.architectureImg && (
+                            <ProjectFigure
+                                src={project.architectureImg}
+                                alt={`${project.title} architecture`}
+                            />
+                        )}
                     </LogEntry>
 
                     <LogEntry index="03" label="Design">
                         <p className="text-neutral-300 text-sm md:text-base leading-relaxed max-w-2xl">
                             {firstParagraph(project.designParagraphs)}
                         </p>
+                        {project.designImg && (
+                            <ProjectFigure
+                                src={project.designImg}
+                                alt={`${project.title} design`}
+                            />
+                        )}
                     </LogEntry>
 
                     {project.deliverables && project.deliverables.length > 0 && (
@@ -232,6 +234,22 @@ function LogEntry({
             </span>
             <div className="mt-6">{children}</div>
         </section>
+    )
+}
+
+function ProjectFigure({ src, alt }: { src: string; alt: string }) {
+    return (
+        <figure className="mt-10 max-w-2xl">
+            <div className="relative w-full aspect-video border border-neutral-800/80 bg-black/50 overflow-hidden">
+                <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 672px"
+                    className="object-contain"
+                />
+            </div>
+        </figure>
     )
 }
 
