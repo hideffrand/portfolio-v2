@@ -2,6 +2,7 @@ import { isLiveWebUrl, projects, techTag, type ProjectProps } from "@/utils/data
 import { notFound } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import LiveLighthouse from "@/components/live-lighthouse"
 
@@ -13,6 +14,40 @@ export async function generateStaticParams() {
     return projects.map((project) => ({
         id: project.id,
     }))
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { id } = await params
+    const project = projects.find((p) => p.id === id)
+
+    if (!project) {
+        return {}
+    }
+
+    const title = `${project.title} — ${project.type}`
+    const description = project.desc
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${project.id}`,
+        },
+        openGraph: {
+            type: "website",
+            url: `/${project.id}`,
+            siteName: "Deffrand Farera",
+            title,
+            description,
+            locale: "en_US",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [`/${project.id}/opengraph-image`],
+        },
+    }
 }
 
 export default async function ProjectDetailPage({ params }: PageProps) {
@@ -40,6 +75,21 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
     return (
         <main className="relative z-10 min-h-screen bg-[#0a0a0b]/20 border border-gray-50/20 backdrop-blur-md text-[#f2f2f0] pb-32 top-40 selection:bg-white selection:text-black rounded-4xl">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CreativeWork",
+                        name: project.title,
+                        description: project.desc,
+                        creator: { "@type": "Person", name: "Deffrand Farera" },
+                        url: `https://www.deff.online/${project.id}`,
+                        datePublished: `${project.year}-01-01`,
+                        keywords: project.stack,
+                    }),
+                }}
+            />
             {/* Top bar */}
             <div className="max-w-6xl mx-auto px-6 pt-10 pb-16 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-neutral-500 font-medium">
                 <a
