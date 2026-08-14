@@ -356,6 +356,7 @@ export default function HomePage() {
                                             src={project.img}
                                             alt={project.title}
                                             fill
+                                            sizes="(max-width: 768px) 100vw, 60vw"
                                             className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.01]"
                                             priority
                                         />
@@ -389,21 +390,23 @@ export default function HomePage() {
                                             ))}
                                         </div>
 
-                                        <a
-                                            href={`/${project.id}`}
-                                            onClick={e => e.stopPropagation()}
-                                            className={`
+                                        <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+                                            <a
+                                                href={`/${project.id}`}
+                                                onClick={e => e.stopPropagation()}
+                                                className={`
                             inline-flex items-center gap-1.5 text-sm
                             transition-colors duration-200
                             underline underline-offset-2
                             ${isStar ? "text-amber-200/80 hover:text-amber-100" : "text-neutral-300 hover:text-white"}
                         `}
-                                        >
-                                            See Details
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                                                <path d="M7 17 17 7M7 7h10v10" />
-                                            </svg>
-                                        </a>
+                                            >
+                                                See Details
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                                                    <path d="M7 17 17 7M7 7h10v10" />
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             );

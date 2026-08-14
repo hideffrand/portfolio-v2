@@ -5,6 +5,7 @@ export interface ProjectProps {
   type: string;
   year: number;
   url: string;
+  github: string;
   desc: string;
   stack: string[];
   // New technical documentation fields
@@ -44,6 +45,7 @@ export const projects: ProjectProps[] = [
     type: "Web Design and Development",
     year: 2023,
     url: "https://ovo-landing.vercel.app",
+    github: "https://github.com/hideffrand/ovo-landing",
     desc: "I built this landing page with a simple visual style and a strong focus on speed and responsive layouts.",
     stack: ["next", "ts", "tw", "figma"],
     overviewParagraphs: [
@@ -80,6 +82,7 @@ export const projects: ProjectProps[] = [
     type: "Mobile App Development",
     year: 2024,
     url: "https://www.youtube.com/watch?v=8fVH6FajDVY",
+    github: "https://github.com/hideffrand/gemastik-frontend",
     desc: "A React Native app I worked on to help households track waste, manage food expiration dates, get AI suggestions, and arrange waste pickup.",
     stack: ["rn", "figma"],
     overviewParagraphs: [
@@ -116,6 +119,7 @@ export const projects: ProjectProps[] = [
     type: "UI/UX",
     year: 2025,
     url: "https://www.figma.com/proto/ueRKm0yUs3lxyh05T4RakR/Wireframe?page-id=0%3A1&node-id=654-3920&p=f&viewport=480%2C386%2C0.05&t=DsPof1akFJBtMk6u-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3&show-proto-sidebar=1",
+    github: "",
     desc: "An AI-powered mobile app I designed to help Deaf and hearing users communicate through sign language translation, learning features, and a community space.",
     stack: ["figma"],
     overviewParagraphs: [
@@ -152,6 +156,7 @@ export const projects: ProjectProps[] = [
     type: "Full Stack Web Development",
     year: 2026,
     url: "https://zyrex.com/service",
+    github: "",
     desc: "Zyrex CS is a customer service and ticketing system I worked on to manage bookings, service requests, ticket tracking, and admin tasks.",
     stack: ["next", "tw", "py", "sql"],
     overviewParagraphs: [
@@ -188,6 +193,7 @@ export const projects: ProjectProps[] = [
     type: "Mobile + Backend Development",
     year: 2026,
     url: "",
+    github: "https://github.com/hideffrand/mooni",
     desc: "A small remote-control setup I built for my Linux machine. It uses an Android app and a Go agent connected through Tailscale so I can browse files, check system health, and restart the machine remotely.",
     stack: ["go", "rn", "ts", "expo", "tailscale", "linux"],
     overviewParagraphs: [

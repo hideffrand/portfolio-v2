@@ -142,10 +142,10 @@ export default function Footer() {
                 />
 
                 <Image
-                    className="absolute bottom-0 z-0 opacity-60"
+                    className="absolute bottom-0 z-0 opacity-60 w-80 h-auto"
                     src="/beam.svg"
-                    width={700}
-                    height={700}
+                    width={525}
+                    height={298}
                     alt=""
                     aria-hidden
                 />
