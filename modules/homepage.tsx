@@ -79,7 +79,7 @@ export default function HomePage() {
                         What Can I Do?
                     </h2>
                     <p className="text-neutral-300 text-sm md:text-base max-w-lg leading-relaxed">
-                        End-to-end web systems engineering, third-party API integration, and product UI/UX design.
+                        Full stack application development, third-party API integration, and product UI/UX design.
                     </p>
                 </div>
 

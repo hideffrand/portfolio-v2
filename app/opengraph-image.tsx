@@ -10,7 +10,7 @@ export default async function Image() {
     <OGCard
       kicker="Deffrand Farera"
       title="Software Engineer."
-      subtitle="Web systems engineering, API integration, and product UI/UX — built end-to-end."
+      subtitle="Full stack application development, API integration, and product UI/UX — built end-to-end."
       footLeft="deff.online"
       footRight="Portfolio"
     />,

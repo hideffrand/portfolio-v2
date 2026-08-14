@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s · Deffrand Farera",
   },
   description:
-    "Portfolio of Deffrand Farera — software engineer building web systems, API integrations, and product UI/UX end-to-end.",
+    "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
   applicationName: "Deffrand Farera",
   keywords: [
     "Deffrand Farera",
@@ -38,6 +38,17 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Deffrand Farera", url: siteUrl }],
   creator: "Deffrand Farera",
+  category: "Portfolio",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Deffrand Farera",
+    statusBarStyle: "black-translucent",
+  },
   alternates: {
     canonical: "/",
   },
@@ -47,14 +58,15 @@ export const metadata: Metadata = {
     siteName: "Deffrand Farera",
     title: "Deffrand Farera — Software Engineer",
     description:
-      "Portfolio of Deffrand Farera — software engineer building web systems, API integrations, and product UI/UX end-to-end.",
+      "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
     locale: "en_US",
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Deffrand Farera — Software Engineer",
     description:
-      "Portfolio of Deffrand Farera — software engineer building web systems, API integrations, and product UI/UX end-to-end.",
+      "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
     images: ["/opengraph-image"],
   },
   robots: {
@@ -65,6 +77,10 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0b",
 };
 
 export default function RootLayout({
@@ -85,7 +101,7 @@ export default function RootLayout({
               url: siteUrl,
               jobTitle: "Software Engineer",
               knowsAbout: [
-                "Web Development",
+                "Full Stack Application Development",
                 "API Integration",
                 "UI/UX Design",
                 "Next.js",

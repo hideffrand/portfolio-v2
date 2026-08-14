@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title,
         description,
+        authors: [{ name: "Deffrand Farera", url: "https://www.deff.online" }],
+        category: project.type,
         alternates: {
             canonical: `/${project.id}`,
         },
@@ -40,6 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             title,
             description,
             locale: "en_US",
+            images: [`/${project.id}/opengraph-image`],
         },
         twitter: {
             card: "summary_large_image",
