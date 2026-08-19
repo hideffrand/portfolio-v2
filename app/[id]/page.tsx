@@ -232,7 +232,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                         </LogEntry>
                     )}
 
-                    {project.lighthouse && (
+                    {/* {project.lighthouse && (
                         <LogEntry index="05" label={isLiveWebUrl(project.url) ? "Lighthouse" : "Metrics"}>
                             {isLiveWebUrl(project.url) ? (
                                 <LiveLighthouse url={project.url} fallback={project.lighthouse} />
@@ -245,7 +245,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                                 </div>
                             )}
                         </LogEntry>
-                    )}
+                    )} */}
 
                 </div>
             </div>
