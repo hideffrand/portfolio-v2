@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return {}
     }
 
-    const title = `${project.title} — ${project.type}`
+    const title = `${project.title}: ${project.type}`
     const description = project.desc
 
     return {
@@ -61,11 +61,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         notFound()
     }
 
-    // One full paragraph per section — the log reads like a build note,
+    // One full paragraph per section, the log reads like a build note,
     // not a marketing pitch. No repeated imagery, one figure only.
     const firstParagraph = (paragraphs?: string[]) => paragraphs?.[0]?.trim()
 
-    // Continuous browsing — wraps around so there's always a next
+    // Continuous browsing, wraps around so there's always a next
     // and previous entry, regardless of where you land in the list.
     const currentIndex = projects.findIndex((p) => p.id === project.id)
     const hasSiblings = projects.length > 1
@@ -104,7 +104,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 <span>{project.year} · {project.type}</span>
             </div>
 
-            {/* Title — the thesis. Text leads, not an image. */}
+            {/* Title: the thesis. Text leads, not an image. */}
             <div className="max-w-6xl mx-auto px-6">
                 <h1 className="text-4xl sm:text-5xl md:text-7xl leading-[1.02] font-light tracking-tight text-white">
                     {project.title}
@@ -250,7 +250,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Continue — the bookend to the title above. No arrows: direction
+            {/* Continue: the bookend to the title above. No arrows: direction
                 comes from position (previous sits left, next sits right) and
                 from the page-locator tag, like folios at the foot of a page. */}
             {(prevProject || nextProject) && (
@@ -298,7 +298,7 @@ function LogEntry({
     return (
         <section className="py-16 first:pt-0 last:pb-0">
             <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                {index} — {label}
+                {index} · {label}
             </span>
             <div className="mt-6">{children}</div>
         </section>
@@ -350,7 +350,7 @@ function ProjectNavLink({
             className={`group relative block overflow-hidden border border-neutral-800/80 p-8 transition-colors duration-300 hover:border-neutral-600 focus:outline-none focus-visible:ring-1 focus-visible:ring-white/60 ${align === "right" ? "sm:text-right" : "text-left"
                 }`}
         >
-            {/* Hover-reveal figure — a quiet peek at what's next, not a full image */}
+            {/* Hover-reveal figure, a quiet peek at what's next, not a full image */}
             <div className="absolute inset-0">
                 <Image
                     src={project.img}

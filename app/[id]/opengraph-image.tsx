@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og"
 import { projects } from "@/utils/data"
 import { loadOgFonts, OG_SIZE, OGCard } from "@/utils/og"
 
-export const alt = "Deffrand Farera — Project"
+export const alt = "Deffrand Farera - Project"
 export const size = OG_SIZE
 export const contentType = "image/png"
 
@@ -22,7 +22,7 @@ export default async function Image({
       <OGCard
         kicker="Deffrand Farera"
         title="Software Engineer."
-        subtitle="Full stack application development, API integration, and product UI/UX — built end-to-end."
+        subtitle="Full stack application development, API integration, and product UI/UX, built end-to-end."
         footLeft="deff.online"
         footRight="Portfolio"
       />,
@@ -34,7 +34,7 @@ export default async function Image({
 
   return new ImageResponse(
     <OGCard
-      kicker={`${project.type} — ${project.year}`}
+      kicker={`${project.type} · ${project.year}`}
       title={project.title}
       subtitle={clamp(project.desc)}
       footLeft="deff.online"

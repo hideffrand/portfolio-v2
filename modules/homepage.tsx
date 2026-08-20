@@ -98,7 +98,7 @@ export default function HomePage() {
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10">
-                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">01 — Interface</span>
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">01 · Interface</span>
                             <h3 className="text-base font-medium text-white mt-2 tracking-tight">Frontend Engineering</h3>
                             <p className="text-neutral-300 text-sm max-w-[85%] sm:max-w-sm mt-2 leading-relaxed">
                                 Polished web applications engineered for SEO performance, content discoverability, and precision Figma-to-production execution.
@@ -136,7 +136,7 @@ export default function HomePage() {
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10 max-w-[75%] sm:max-w-full">
-                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">02 — Experience</span>
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">02 · Experience</span>
                             <h3 className="text-base font-medium text-white mt-2 tracking-tight">Product UI/UX Design</h3>
                             <p className="text-neutral-300 text-sm mt-2 leading-relaxed">
                                 User-centric UI/UX improvements, wireframes, and prototypes structured to enhance discoverability and user flow.
@@ -175,7 +175,7 @@ export default function HomePage() {
                         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
                         <div className="relative z-10 max-w-full md:max-w-[50%] lg:max-w-[55%]">
-                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">03 — Architecture</span>
+                            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-500">03 · Architecture</span>
                             <h3 className="text-base font-medium text-white mt-2 tracking-tight">Backend &amp; Systems</h3>
                             <p className="text-neutral-300 text-sm mt-2 leading-relaxed">
                                 Scalable RESTful APIs, multi-threaded scripts, and SQL database design. Currently expanding expertise into Linux environments, low-level system operations, and server administration.
@@ -266,7 +266,7 @@ export default function HomePage() {
                                         <ul className="space-y-1.5">
                                             {(expandedExp[i] ? exp.desc : exp.desc.slice(0, 1)).map((line, k) => (
                                                 <li key={k} className="flex gap-2 text-sm text-neutral-300 leading-relaxed">
-                                                    <span className="text-neutral-600 shrink-0">—</span>
+                                                    <span className="text-neutral-600 shrink-0">·</span>
                                                     <span>{line}</span>
                                                 </li>
                                             ))}

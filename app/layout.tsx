@@ -18,11 +18,11 @@ const siteUrl = "https://www.deff.online";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Deffrand Farera — Software Engineer",
+    default: "Deffrand Farera - Software Engineer",
     template: "%s · Deffrand Farera",
   },
   description:
-    "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
+    "Portfolio of Deffrand Farera, full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
   applicationName: "Deffrand Farera",
   keywords: [
     "Deffrand Farera",
@@ -56,17 +56,17 @@ export const metadata: Metadata = {
     type: "website",
     url: siteUrl,
     siteName: "Deffrand Farera",
-    title: "Deffrand Farera — Software Engineer",
+    title: "Deffrand Farera: Software Engineer",
     description:
-      "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
+      "Portfolio of Deffrand Farera, full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
     locale: "en_US",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Deffrand Farera — Software Engineer",
+    title: "Deffrand Farera: Software Engineer",
     description:
-      "Portfolio of Deffrand Farera — full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
+      "Portfolio of Deffrand Farera, full stack application developer building end-to-end web applications, API integrations, and product UI/UX.",
     images: ["/opengraph-image"],
   },
   robots: {
