@@ -192,7 +192,7 @@ export const projects: ProjectProps[] = [
     img: "/mooni.png",
     type: "Mobile + Backend Development",
     year: 2026,
-    url: "",
+    url: "https://web-mooni.vercel.app/",
     github: "https://github.com/hideffrand/mooni",
     desc: "A small remote-control setup I built for my Linux machine. It uses an Android app and a Go agent connected through Tailscale so I can browse files, check system health, and restart the machine remotely.",
     stack: ["go", "rn", "ts", "expo", "tailscale", "linux"],
