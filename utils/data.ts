@@ -216,6 +216,37 @@ export const projects: ProjectProps[] = [
       { label: "C / Pairing", title: "Zero-Typing Onboarding", desc: "An install script that sets up the service, creates a pairing code, and shows a QR code. Scanning or pasting the code fills in the connection details." },
       { label: "D / Control", title: "System Health + Power", desc: "A live dashboard showing CPU, memory, disk, load, uptime, process count, and temperature, with protected reboot and shutdown controls." }
     ]
+  },
+  {
+    id: "flick",
+    title: "Flick",
+    img: "/flick.webp",
+    type: "Full Stack Web + Browser Extension",
+    year: 2026,
+    url: "",
+    github: "",
+    desc: "A browser extension that scans a paper document and auto-fills its fields into any web form. Extraction rules are configured live in a web admin, so supporting a new document never needs a code change.",
+    stack: ["go", "ts", "py", "next", "tw", "sql"],
+    overviewParagraphs: [
+      "Flick scans a paper document from a camera photo or an upload, reads its fields with OCR, and fills them into the matching form on the active tab. Instead of writing a parser for each document, an admin defines a document type once in the web interface — fields plus regex rules — and the extension reads from that config.",
+      "Rule changes apply instantly because nothing is compiled per document. The document types are stored in the database and read by the OCR pipeline on every request, so a field that was added or corrected shows up on the next scan."
+    ],
+    architectureParagraphs: [
+      "Flick is a monorepo of four independent packages. A browser extension holds the side panel and autofill logic, a Go API handles auth, payments, and document type CRUD, and a FastAPI microservice runs the OCR with PaddleOCR by default and a fallback to CnOCR.",
+      "The extension never contains extraction rules. It sends the image to the Go API, which applies the paywall and forwards the stored field config to the OCR service, so rule changes take effect without a rebuild or restart."
+    ],
+    designParagraphs: [
+      "I kept the scanning flow short: sign in, pick a document type, capture or upload the image, preview it, then run the scan. The result shows each extracted field with a confidence value so failures are visible instead of silent.",
+      "The web admin is bilingual and shows the extraction rules next to demo forms styled as a real hospital SIMRS and a real ERP, both clearly flagged as demo, so a rule can be tested against realistic layouts before it is used in the extension."
+    ],
+    // architectureImg: "/flick.webp",
+    // designImg: "/flick.webp",
+    deliverables: [
+      { label: "A / Extension", title: "Scan-to-Fill Side Panel", desc: "A Chrome, Edge, and Firefox extension that captures or uploads a document, sends it for OCR, and auto-fills the matched form on the active tab." },
+      { label: "B / Rules", title: "Config-Driven Extraction", desc: "An admin defines document types, fields, and regex rules in the database. No per-document parsers in code, and rule edits apply without a rebuild." },
+      { label: "C / Backend", title: "Go API with Auth and Paywall", desc: "A Go service handling JWT auth, rate-limited signup, mock payment plans, and document type CRUD as the single source the extension reads." },
+      { label: "D / OCR", title: "Hybrid OCR Microservice", desc: "A FastAPI service running PaddleOCR with CnOCR fallback, applying regex field config with generic line-by-line parsing as a safety net." }
+    ]
   }
 ];
 

@@ -314,7 +314,7 @@ export default function HomePage() {
                 <section className="w-full h-auto flex flex-col items-end">
                     <div className="relative w-full">
                         {projects.map((project, i) => {
-                            const isStar = project.id === "mooni";
+                            const isStar = project.id === "flick";
 
                             return (
                                 <div
