@@ -2,6 +2,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 
 const LenisContext = createContext<Lenis | null>(null);
@@ -13,6 +14,7 @@ export function useLenis() {
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
     const [lenis, setLenis] = useState<Lenis | null>(null);
     const rafId = useRef<number>(0);
+    const pathname = usePathname();
 
     useEffect(() => {
         const instance = new Lenis({
@@ -36,6 +38,15 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
             instance.destroy();
         };
     }, []);
+
+    // Lenis keeps its internal scroll offset across client-side navigations,
+    // so reset it (and the window) whenever the route changes.
+    useEffect(() => {
+        if (lenis) {
+            lenis.scrollTo(0, { immediate: true });
+        }
+        window.scrollTo(0, 0);
+    }, [pathname, lenis]);
 
     return (
         <LenisContext.Provider value={lenis}>
