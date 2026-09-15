@@ -223,7 +223,7 @@ export const projects: ProjectProps[] = [
     img: "/flick.webp",
     type: "Full Stack Web + Browser Extension",
     year: 2026,
-    url: "",
+    url: "https://web-flick.vercel.app",
     github: "",
     desc: "A browser extension that scans a paper document and auto-fills its fields into any web form. Extraction rules are configured live in a web admin, so supporting a new document never needs a code change.",
     stack: ["go", "ts", "py", "next", "tw", "sql"],
