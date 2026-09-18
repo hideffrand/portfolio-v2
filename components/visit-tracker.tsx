@@ -25,13 +25,14 @@ export default function VisitTracker() {
       subject: source ? `Portfolio visit from "${source}"` : "Portfolio visit",
       from_name: "Portfolio Visitor Tracker",
       source: source || "direct",
-      page: url.pathname + url.search + url.hash,
+      page: url.pathname + url.search,
       referrer: document.referrer || "direct",
       visited_at: now.toISOString(),
       screen: `${window.screen.width}x${window.screen.height}`,
       language: navigator.language,
     }
 
+    localStorage.setItem("pv:tracked", today)
     fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -39,9 +40,9 @@ export default function VisitTracker() {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.success) localStorage.setItem("pv:tracked", today)
+        if (!res.success) localStorage.removeItem("pv:tracked")
       })
-      .catch(() => {})
+      .catch(() => { localStorage.removeItem("pv:tracked") })
   }, [])
 
   return null
